@@ -5,9 +5,10 @@
 3. Open cmd line/Git Bash
 4. Type in **cd "file path where you want to store the project"**
 5. Type in **git clone 'repo link'** e.g. **git clone https://github.com/olivia-pham/IoTBay.git**
-6. To switch branches, **git checkout branchname**
-7. After the project has been cloned you should see it stored in your local chosen folder.
-8. Open up project in Netbeans IDE: File -> Open Project
+6. Open up project on cmd line, **cd IoTBay**
+7. To switch branches, **git checkout branchname**
+8. After the project has been cloned you should see it stored in your local chosen folder.
+9. Open up project in Netbeans IDE: File -> Open Project
 
 ## To commit changes to project on Github:
 https://www.srcmake.com/home/bitbucket-pr 
