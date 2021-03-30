@@ -10,6 +10,7 @@
 8. Open up project in Netbeans IDE: File -> Open Project
 
 ## To commit changes to project on Github:
+https://www.srcmake.com/home/bitbucket-pr 
 1. Open the project on cmd line, **cd ".....\IoTBay**
 2. Make sure you're on the branch where you made changes locally/switch to the branch using git checkout
 3. **git status** to see changes made locally
