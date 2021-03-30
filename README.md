@@ -9,6 +9,7 @@
 7. To switch branches, **git checkout branchname**
 8. After the project has been cloned you should see it stored in your local chosen folder.
 9. Open up project in Netbeans IDE: File -> Open Project
+10. You may need to resolve issues with junit.jar and hamcrest.jar
 
 ## To commit changes to project on Github:
 https://www.srcmake.com/home/bitbucket-pr 
