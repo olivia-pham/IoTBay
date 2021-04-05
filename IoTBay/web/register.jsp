@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,8 @@
         <title>Registration Page</title>
     </head>
     <body>
+        <main>
+        <section>
         <h1>Sign Up</h1>
         <form action="welcome.jsp" method="POST">
             <table>
@@ -35,6 +38,7 @@
                 <input type="submit" value="Sign up">
             </div>
         </form>
-
+        </section>
+        </main>
     </body>
 </html>

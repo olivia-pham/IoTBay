@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="./main.css">
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +13,15 @@
         <title>Home Page</title>
     </head>
     <body>
+        <main>
+        <section>
         <h1>Home Page</h1>
         
         <div>
             <a href="register.jsp" class="button">Register</a>
             <a href="login.jsp" class="button">Login</a>
         </div>
+        </section>
+        </main>
     </body>
 </html>
