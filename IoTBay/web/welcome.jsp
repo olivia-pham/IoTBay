@@ -3,8 +3,9 @@
     Created on : 16/03/2021, 8:17:08 PM
     Author     : olivi
 --%>
-
+<%@page import="uts.isd.model.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,7 @@
         <title>Welcome Page</title>
     </head>
     <body>
+        
         <%
             String name = request.getParameter("name");
             String email = request.getParameter("email");
@@ -26,6 +28,17 @@
         <p>Your password is: <%= password%></p>
         <p>Your DOB is: <%= dob%></p>
         <p>Your gender is: <%= gender%></p>
-       
+        <div>
+            <a class="button" href="index.jsp">Cancel</a>
+            <a class="button" href="main.jsp">Main</a>         
+                    
+          
+        </div>
+        <%
+            Customer customer = new Customer(name, email, password, dob, gender);
+            session.setAttribute("customer", customer);
+        %>
+        
+      
     </body>
 </html>

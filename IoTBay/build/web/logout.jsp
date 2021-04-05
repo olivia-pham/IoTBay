@@ -1,11 +1,10 @@
 <%-- 
-    Document   : login
-    Created on : 30/03/2021, 12:01:39 PM
+    Document   : logout
+    Created on : 04/04/2021, 4:54:11 PM
     Author     : olivi
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
