@@ -15,7 +15,7 @@
     <body>
         <main>
         <section>
-        <h1>Home Page</h1>
+        <h1>The IoT Store</h1>
         
         <div>
             <a href="register.jsp" class="button">Register</a>
