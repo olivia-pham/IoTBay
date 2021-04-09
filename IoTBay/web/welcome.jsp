@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome Page</title>
     </head>
@@ -23,14 +24,20 @@
             
             
         %>
+        
         <h1>Welcome, <%= name %>! </h1>
+        <div class="centerForm">
         <p>Your email is: <%= email%></p>
         <p>Your password is: <%= password%></p>
         <p>Your DOB is: <%= dob%></p>
         <p>Your gender is: <%= gender%></p>
-        <div>
-            <a class="button" href="index.jsp">Cancel</a>
-            <a class="button" href="main.jsp">Main</a>         
+        <div class="buttonDiv1">
+            <a class="mainButton" href="main.jsp">Main Page</a>
+        </div>
+        
+        <div class="cancelDiv">
+             <a class="button" href="index.jsp">Cancel</a>
+        </div>
                     
           
         </div>

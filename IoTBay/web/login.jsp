@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
     </head>
@@ -17,17 +18,22 @@
         <h1>Login</h1>
         <%Customer customer = new Customer("Dave","b@c","pass","20/22/1999","Male");%>
         <%if (request.getParameter("something") == null) {%>
-        <form action ="login.jsp" method="POST">
+        <div class="form">
+        <form action ="login.jsp" method="POST" class="centreText">
             <table>
                 <tr><td>Email:</td><td><input type="text" name="email" required="true" placeholder="Enter email"></td></tr>
-                <tr><td>Password:</td><td><input type="text" name="password" required="true" placeholder="Enter password"></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="password" required="true" placeholder="Enter password"></td></tr>
                 <input type="hidden" name="something">           
             </table>
-            <div>
-                <a href="index.jsp">Cancel</a>
-                <input type="submit" value="Login">
+            <div class="buttonDiv1">
+                <input type="submit" class="submitButton" value="Login">
+            </div>
+            
+            <div class="cancelDiv">
+                <a href="index.jsp">Go Back</a>
             </div>
         </form>
+        </div>
         <%} else {%>
             <%if (request.getParameter("email").equals(customer.getEmail()) && request.getParameter("password").equals(customer.getPassword())) { %>
                 <form action="welcome.jsp" method="POST">
