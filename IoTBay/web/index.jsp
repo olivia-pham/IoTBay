@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
     </head>
@@ -17,9 +18,9 @@
         <section>
         <h1>The IoT Store</h1>
         
-        <div>
-            <a href="register.jsp" class="button">Register</a>
-            <a href="login.jsp" class="button">Login</a>
+        <div class="buttonDiv1">
+            <a href="register.jsp" class="mainButton">Register</a>
+            <a href="login.jsp" class="mainButton">Login</a>
         </div>
         </section>
         </main>
