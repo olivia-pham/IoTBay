@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration Page</title>
     </head>
@@ -16,6 +17,7 @@
         <main>
         <section>
         <h1>Sign Up</h1>
+        <div class="form">
         <form action="welcome.jsp" method="POST">
             <table>
                 <tr><td>Full Name:</td><td><input type="text" placeholder="Enter name" name="name" required="true"></td></tr>
@@ -33,11 +35,14 @@
                 
                 <tr><td>Agree to Terms of Service:</td><td><input type="checkbox" name="tos" required></td></tr>
             </table>
-            <div>
+            <div class="buttonDiv1">
+                <input type="submit" value="Sign up" class="submitButton">
+            </div>
+            <div class="cancelDiv">
                 <a href="index.jsp">Cancel</a>
-                <input type="submit" value="Sign up">
             </div>
         </form>
+            </div>
         </section>
         </main>
     </body>
