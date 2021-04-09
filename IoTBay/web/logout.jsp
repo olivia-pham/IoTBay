@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Logout Page</title>
     </head>
@@ -21,3 +22,4 @@
         <% session.invalidate();%>
     </body>
 </html>
+
