@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Main Page</title>
     </head>
@@ -18,14 +19,14 @@
             Customer customer = (Customer)session.getAttribute("customer");
         %>
         <h1>Customer Profile</h1>
-        <table id="profile_table">
-            <thead><th>Name</th><th>Email</th><th>Password</th><th>Date of Birth</th><th>Gender</th></thead>
-        <tr><td>${customer.name}</td><td>${customer.email}</td><td>${customer.password}</td><td>${customer.dob}</td><td>${customer.gender}</td></tr>        
+        <table id="profile_table" class="tableCenter">
+            <thead><th>Name</th><th>Email</th><th>Password</th><th>Date of Birth</th></thead>
+        <tr><td>${customer.name}</td><td>${customer.email}</td><td>${customer.password}</td><td>${customer.dob}</td></tr>        
         </table>
-        
-        <div class="panel_div">
-            
-            <a href="logout.jsp" class="button">Logout</a>
+
+        <div class="buttonDiv1">
+            <a href="edit.jsp" class="button">Edit</a>
+            <a href="logout.jsp" class="logoutButton">Logout</a>
         </div>
     </body>
 </html>

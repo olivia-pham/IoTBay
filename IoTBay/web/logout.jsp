@@ -8,10 +8,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Logout Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Logout</h1>
+        
+            <table>
+                <tr>You have been logged out. Click <a href="index.jsp">here</a> to return to the index.</tr>
+            </table>
+       
+        <% session.invalidate();%>
     </body>
 </html>

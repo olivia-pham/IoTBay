@@ -6,9 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="./main.css">
+
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="./main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
     </head>
@@ -17,9 +19,9 @@
         <section>
         <h1>Home Page</h1>
         
-        <div>
-            <a href="register.jsp" class="button">Register</a>
-            <a href="login.jsp" class="button">Login</a>
+        <div class="buttonDiv1">
+            <a href="register.jsp" class="mainButton">Register</a>
+            <a href="login.jsp" class="mainButton">Login</a>
         </div>
         </section>
         </main>
