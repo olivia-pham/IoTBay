@@ -104,12 +104,12 @@ public class DBManager {
     
     //update customer details in database
     public void updateProduct(String id, String name, String price, String desc) throws SQLException {
-        st.executeUpdate("UPDATE ADMIN1.Products SET ID='" + id + "',NAME='" + name + "',PRICE='" + price + "' WHERE DESCRIPTION='" + desc + "'");
+        st.executeUpdate("UPDATE ADMIN1.Products SET ID=" + id + ",NAME='" + name + "',PRICE=" + price + " WHERE DESCRIPTION='" + desc + "'");
     }
     
     //delete customer from database
     public void deleteProduct(String id, String name, String price, String desc) throws SQLException {
-        st.executeUpdate("DELETE FROM ADMIN1.Products WHERE ID='" + id + "'");
+        st.executeUpdate("DELETE FROM ADMIN1.Products WHERE ID=" + id + "");
     }
     
     public ArrayList<Product> fectProducts() throws SQLException {
