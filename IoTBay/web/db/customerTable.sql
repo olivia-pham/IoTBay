@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 /**
- * Author:  olivi
- * Created: 09/05/2021
+ * Author:  User
+ * Created: 10/05/2021
  */
-CREATE TABLE USERS (
+CREATE TABLE CUSTOMERS (
     "NAME" VARCHAR (50),
     EMAIL VARCHAR (50) NOT NULL,
     PASSWORD VARCHAR(20),
-    DOB VARCHAR(10)
+    DOB VARCHAR(10),
+    PRIMARY KEY(EMAIL)
 );
 
