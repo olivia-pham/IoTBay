@@ -28,7 +28,7 @@
         <p>Your email is: <%= email%></p>
         <p>Your password is: <%= password%></p>
         <p>Your DOB is: <%= dob%></p>
-        
+
         <div class="buttonDiv1">
             <a class="mainButton" href="main.jsp">Main Page</a>
         </div>
