@@ -5,25 +5,23 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="./main.css">
-
+<%@page import="uts.isd.model.*" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/main.css"> 
+        <script type ="text/javascript" src="js/script.js"></script>
         <title>Home Page</title>
     </head>
-    <body>
-        <main>
-        <section>
-        <h1>Home Page</h1>
-        
+    <body onload="startTime()">
+        <div><span class="time" id="time" ></span></div>
+        <h1>The IoT Store</h1>        
         <div class="buttonDiv1">
             <a href="register.jsp" class="mainButton">Register</a>
             <a href="login.jsp" class="mainButton">Login</a>
         </div>
-        </section>
-        </main>
+
+        <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>

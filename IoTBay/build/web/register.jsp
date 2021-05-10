@@ -18,8 +18,8 @@
         <section>
         <h1>Sign Up</h1>
         <div class="form">
-        <form action="welcome.jsp" method="POST">
-            <table>
+        <form action="RegisterServlet" method="POST">
+            <table id="form_table">
                 <tr><td>Full Name:</td><td><input type="text" placeholder="Enter name" name="name" required="true"></td></tr>
                 <tr><td>Email:</td><td><input type="email" placeholder="Enter email" name="email" required=></td></tr>
                 <tr><td>Password:</td><td><input type="password" placeholder="Enter password" name="password" required></td></tr>
