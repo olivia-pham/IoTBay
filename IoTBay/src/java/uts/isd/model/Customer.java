@@ -13,16 +13,14 @@ public class Customer {
     private String email;
     private String password;
     private String dob;
-    private String gender;
     
     //insert constructor that initializes the fields
 
-    public Customer(String name, String email, String password, String dob, String gender) {
+    public Customer(String name, String email, String password, String dob) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.dob = dob;
-        this.gender = gender;
     }
     
     //insert getters/setters
@@ -58,16 +56,7 @@ public class Customer {
     public void setDob(String dob) {
         this.dob = dob;
     }
-    
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-    
-    
+   
     
     
 }
