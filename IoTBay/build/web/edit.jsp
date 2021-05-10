@@ -21,25 +21,27 @@
             String updated = request.getParameter("updated");
         %>
         
+        <div>
+            <a href="MainServlet?email='<%= customer.getEmail()%>'&password='<%=customer.getPassword()%>'" class="button">Main</a>       
+            <a href="LogoutController" class="button">Logout</a>  
+                
+        </div>
+        
         <h1>Edit Student Information <span class="message"> <%=(updated != null ? updated : "")%></span></h1>
         <div class="form">
-        <form action="UpdateServlet" method="POST">
+        <form action="UpdateServlet" method="post">
             <table id="form_table">
-                <tr><td>Full Name:</td><td><input type="text" name="name" value="${customer.name}" required="true"></td></tr>
-                <tr><td>Email:</td><td><input type="email" name="email" value="${customer.email}" required=></td></tr>
-                <tr><td>Password:</td><td><input type="password" name="password" value="${customer.password}" required></td></tr>
-                <tr><td>Date of Birth:</td><td><input type="date" name="dob" name="dob" value="${customer.dob}" required></td></tr>
+                <tr><td>Full Name:</td><td><input type="text" name="name" value="${customer.name}"></td></tr>
+                <tr><td>Email:</td><td><input type="email" name="email" value="${customer.email}"></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="password" value="${customer.password}"></td></tr>
+                <tr><td>Date of Birth:</td><td><input type="date" name="dob" name="dob" value="${customer.dob}"></td></tr>
                 <tr><td></td>
                     <td>
                         <input class="button" type="submit" value="Update">
                     </td>
                 </tr>
             </table>
-            <div>
-                <a href="MainServlet?email='<%= customer.getEmail()%>'&password='<%=customer.getPassword()%>'" class="button">Main</a>       
-                <a href="LogoutController" class="button">Logout</a>  
-                
-            </div>
+
         </form>
         </div>
     </body>

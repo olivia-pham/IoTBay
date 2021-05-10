@@ -31,36 +31,20 @@ public class RegisterServlet extends HttpServlet {
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String name = request.getParameter("password");
-        String dob = request.getParameter("password");
+        String name = request.getParameter("name");
+        String dob = request.getParameter("dob");
         DBManager manager = (DBManager) session.getAttribute("manager");
         validator.clear(session);
         
-        if(!validator.validateEmail(email)){
-            session.setAttribute("emailErr", "Error: Email format is incorrect!");
-            request.getRequestDispatcher("register.jsp").include(request, response);
-         } else if(!validator.validateName(name)){
-            session.setAttribute("nameErr,", "Error: Name format is incorrect!");
-            request.getRequestDispatcher("register.jsp").include(request, response);
-        
-        } else if(!validator.validatePassword(password)){
-            session.setAttribute("passErr,", "Error: Password format is incorrect!");
-            request.getRequestDispatcher("register.jsp").include(request, response);
-        } else {
-            try {
-                Customer exist = manager.findCustomer(email, password);
-                    if(exist!= null){   
-                        session.setAttribute("existErr", "Customer already exists in database");                          
-                        request.getRequestDispatcher("register.jsp").include(request, response);
-                    } else {
-                        manager.addCustomer(name, email, password, dob);
-                        Customer customer = new Customer(name, email, password, dob);
-                        session.setAttribute("customer", customer);
-                        request.getRequestDispatcher("main.jsp").include(request, response);
-                    }
-                } catch (SQLException ex) {
-                    Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+        try {
+            manager.addCustomer(name, email, password, dob);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+            Customer customer = new Customer(name, email, password, dob);
+            session.setAttribute("customer", customer);
+            request.getRequestDispatcher("main.jsp").include(request, response);
+
+        
+    }
 }
