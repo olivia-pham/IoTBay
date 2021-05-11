@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import uts.isd.model.*;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,24 +42,31 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Home Page</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <h1>Home Page</h1>\n");
-      out.write("        \n");
-      out.write("        <div>\n");
-      out.write("            <a href=\"register.jsp\" class=\"button\">Register</a>\n");
-      out.write("            <a href=\"login.jsp\" class=\"button\">Login</a>\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\"> \r\n");
+      out.write("        <script type =\"text/javascript\" src=\"js/script.js\"></script>\r\n");
+      out.write("        <title>Home Page</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body onload=\"startTime()\">\r\n");
+      out.write("        <div><span class=\"time\" id=\"time\" ></span></div>\r\n");
+      out.write("        <h1>The IoT Store</h1>        \r\n");
+      out.write("        <div class=\"buttonDiv1\">\r\n");
+      out.write("            <a href=\"register.jsp\" class=\"mainButton\">Register</a>\r\n");
+      out.write("            <a href=\"login.jsp\" class=\"mainButton\">Login</a>\r\n");
+      out.write("        </div>\r\n");
+      out.write("\r\n");
+      out.write("        ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/ConnServlet", out, true);
+      out.write("\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
