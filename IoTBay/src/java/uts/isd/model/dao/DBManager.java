@@ -22,7 +22,7 @@ public class DBManager {
     
     //Find customer by ID in the database
     public Customer findCustomer(String email, String password) throws SQLException {
-        String fetch = "select * from ADMIN1.Customers where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+        String fetch = "select * from ADMIN1.CUSTOMERS where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
@@ -39,7 +39,7 @@ public class DBManager {
     
     //add customer data into database
     public void addCustomer(String name, String email, String password, String dob) throws SQLException {
-        st.executeUpdate("INSERT INTO ADMIN1.Customers " + "VALUES ('" + name + "', '" + email + "', '" + password + "','" + dob + "')");
+        st.executeUpdate("INSERT INTO ADMIN1.CUSTOMERS " + "VALUES ('" + name + "', '" + email + "', '" + password + "','" + dob + "')");
     }
     
     //update customer details in database
@@ -53,7 +53,7 @@ public class DBManager {
     }
     
     public ArrayList<Customer> fectCustomers() throws SQLException {
-        String fetch = "select * from CUSTOMERS";
+        String fetch = "select * from ADMIN1.CUSTOMERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Customer> temp = new ArrayList();
         
@@ -113,7 +113,22 @@ public class DBManager {
     }
     
     public ArrayList<Product> fectProducts() throws SQLException {
-        String fetch = "select * from PRODUCTS";
+        String fetch = "select * from ADMIN1.PRODUCTS";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String id = rs.getString(1);
+            String name = rs.getString(2);
+            String price = rs.getString(3);
+            String desc = rs.getString(4);
+            temp.add(new Product(id, name, price, desc));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Product> searchProducts(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.PRODUCTS WHERE Name LIKE '%" + input + "%'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Product> temp = new ArrayList();
         

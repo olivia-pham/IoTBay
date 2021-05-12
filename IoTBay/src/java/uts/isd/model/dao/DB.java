@@ -11,15 +11,15 @@ import java.sql.*;
  * @author olivi
  */
 public abstract class DB {
-    protected String URL = "jdbc:mysql://database-isd2021.cp1vsrjedvsf.us-east-1.rds.amazonaws.com/";
-    protected String db = "isd2021";
-    protected String dbuser = "dbadmin";
-    protected String dbpass = "dbadmin";
-    protected String driver = "com.mysql.cj.jdbc.Driver";
+    protected String URL = "jdbc:derby://localhost:1527/";
+    protected String db = "IOBDB";
+    protected String dbuser = "admin1";
+    protected String dbpass = "admin";
+    protected String driver = "org.apache.derby.jdbc.ClientDriver";
     protected Connection conn;
     
 
-
+        /*
         public DB()
         {
             try
@@ -61,6 +61,7 @@ public abstract class DB {
         }
         catch (SQLException e) { e.printStackTrace(); }
     }
+    */
 }
 
 

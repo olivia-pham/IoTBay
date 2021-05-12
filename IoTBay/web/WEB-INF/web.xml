@@ -26,6 +26,10 @@
         <servlet-class>uts.isd.controller.LogoutController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>TServlet</servlet-name>
+        <servlet-class>uts.isd.controller.TServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CancelServlet</servlet-name>
         <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
     </servlet>
@@ -52,6 +56,10 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TServlet</servlet-name>
+        <url-pattern>/TServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CancelServlet</servlet-name>
