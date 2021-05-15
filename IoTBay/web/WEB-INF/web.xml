@@ -50,6 +50,10 @@
         <servlet-class>uts.isd.controller.ManageListServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>GetProductForEditServlet</servlet-name>
+        <servlet-class>uts.isd.controller.GetProductForEditServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CancelServlet</servlet-name>
         <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
     </servlet>
@@ -105,6 +109,11 @@
     <servlet-mapping>
         <servlet-name>ManageListServlet</servlet-name>
         <url-pattern>/ManageListServlet</url-pattern>
+    </servlet-mapping>
+    
+     <servlet-mapping>
+        <servlet-name>GetProductForEditServlet</servlet-name>
+        <url-pattern>/GetProductForEditServlet</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

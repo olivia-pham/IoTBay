@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Create Product</h1>
         <form action="CreateProductServlet" method="post">
             <table>
                 <tr><td>ID:</td><td><input type="int"  name="id"></td></tr>

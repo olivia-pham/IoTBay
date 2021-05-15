@@ -22,7 +22,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="main.jsp" class="button">Create</a>
+        <a href="main.jsp" class="button">Go to main</a>
         <table class="tableCenter">
             <tr><th>Product Name</th> <th>Select</th></tr>
             
@@ -33,7 +33,7 @@
                             <input type="hidden" name = "productSelect" value="${product.getId()}"> 
                             <input class="button" type="submit" value="delete">
                         </form>
-                        <form action ="EditProductServlet" method="get"> 
+                        <form action ="GetProductForEditServlet" method="get"> 
                             <input type="hidden" name = "productSelect" value="${product.getId()}"> 
                             <input class="button" type="submit" value="edit">
                         </form>
