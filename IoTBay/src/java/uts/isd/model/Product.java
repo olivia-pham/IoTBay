@@ -11,13 +11,25 @@ package uts.isd.model;
  */
 public class Product {
 
-    public Product(String id, String name, String price, String description) {
+    
+
+   
+    
+    private String id;
+    private String name;
+    private String price;
+    private String description;
+    private String quantity;
+    
+
+    public Product(String id, String name, String price, String description, String quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
+        this.quantity = quantity;
     }
-
+    
     public String getId() {
         return id;
     }
@@ -49,16 +61,13 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    private String id;
-    private String name;
-    private String price;
-    private String description;
-    
-    
-    
-    
-    
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
     
 }

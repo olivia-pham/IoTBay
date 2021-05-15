@@ -20,6 +20,7 @@
         <h1><%= product.getName()%></h1>
         <h1><%= product.getPrice()%></h1>
         <h1><%= product.getDescription()%></h1>
+        <h1><%= product.getQuantity()%></h1>
         
     </body>
 </html>

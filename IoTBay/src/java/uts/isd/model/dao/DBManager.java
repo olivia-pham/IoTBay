@@ -91,19 +91,20 @@ public class DBManager {
                 String productName = rs.getString(2);
                 String productPrice = rs.getString(3);
                 String productDesc = rs.getString(4);
-                return new Product(productID, productName, productPrice, productDesc);
+                String productQuant = rs.getString(5);
+                return new Product(productID, productName, productPrice, productDesc, productQuant);
             }            
         }
         return null;
     }
     
     //add customer data into database
-    public void addProduct(String id, String name, String price, String desc) throws SQLException {
-        st.executeUpdate("INSERT INTO ADMIN1.Products " + "VALUES (" + id + ", '" + name + "', " + price + ",'" + desc + "')");
+    public void addProduct(String id, String name, String price, String desc, String quant) throws SQLException {
+        st.executeUpdate("INSERT INTO ADMIN1.Products " + "VALUES (" + id + ", '" + name + "', " + price + ",'" + desc + "'," + quant + " )");
     }
     
     //update customer details in database
-    public void updateProduct(String id, String name, String price, String desc) throws SQLException {
+    public void updateProduct(String id, String name, String price, String desc, String quant) throws SQLException {
         st.executeUpdate("UPDATE ADMIN1.Products SET ID=" + id + ",NAME='" + name + "',PRICE=" + price + " WHERE DESCRIPTION='" + desc + "'");
     }
     
@@ -122,7 +123,8 @@ public class DBManager {
             String name = rs.getString(2);
             String price = rs.getString(3);
             String desc = rs.getString(4);
-            temp.add(new Product(id, name, price, desc));
+            String quant = rs.getString(5);
+            temp.add(new Product(id, name, price, desc, quant));
         }
         return temp;        
     }
@@ -137,7 +139,8 @@ public class DBManager {
             String name = rs.getString(2);
             String price = rs.getString(3);
             String desc = rs.getString(4);
-            temp.add(new Product(id, name, price, desc));
+            String quant = rs.getString(5);
+            temp.add(new Product(id, name, price, desc, quant));
         }
         return temp;        
     }
