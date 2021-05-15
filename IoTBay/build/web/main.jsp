@@ -25,11 +25,11 @@
         <table id="profile_table" class="tableCenter">
             <thead><th>Name</th><th>Email</th><th>Password</th><th>Date of Birth</th></thead>
         <tr><td>${customer.name}</td><td>${customer.email}</td><td>${customer.password}</td><td>${customer.dob}</td></tr>        
-        </table>
-
+        </table>       
         <div class="buttonDiv1">
             <a href="shop.jsp" class="button">Shop</a>
             <a href="cart.jsp" class="button">My Cart</a>
+            <a href="cart.jsp" class="button">Create Product</a>
             <a href="EditServlet?email='<%= customer.getEmail()%>'&password='<%=customer.getPassword()%>'" class="button">Account</a>
             <a href="LogoutController" class="button">Logout</a>
         </div>

@@ -16,7 +16,7 @@
     </head>
     <body onload="startTime()">
         <div><span class="time" id="time" ></span></div>
-        <h1>The IoT Store</h1>        
+        <h1>The IoT Store</h1>      
         <div class="buttonDiv1">
             <a href="register.jsp" class="mainButton">Register</a>
             <a href="login.jsp" class="mainButton">Login</a>

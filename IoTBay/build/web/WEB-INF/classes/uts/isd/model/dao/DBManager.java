@@ -22,7 +22,7 @@ public class DBManager {
     
     //Find customer by ID in the database
     public Customer findCustomer(String email, String password) throws SQLException {
-        String fetch = "select * from ADMIN1.Customers where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+        String fetch = "select * from IOTBAYUSER.CUSTOMERS where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
@@ -39,21 +39,21 @@ public class DBManager {
     
     //add customer data into database
     public void addCustomer(String name, String email, String password, String dob) throws SQLException {
-        st.executeUpdate("INSERT INTO ADMIN1.Customers " + "VALUES ('" + name + "', '" + email + "', '" + password + "','" + dob + "')");
+        st.executeUpdate("INSERT INTO IOTBAYUSER.CUSTOMERS " + "VALUES ('" + name + "', '" + email + "', '" + password + "','" + dob + "')");
     }
     
     //update customer details in database
     public void updateCustomer(String name, String email, String password, String dob) throws SQLException {
-        st.executeUpdate("UPDATE ADMIN1.Customers SET NAME='" + name + "',PASSWORD='" + password + "',dob='" + dob + "' WHERE EMAIL='" + email + "'");
+        st.executeUpdate("UPDATE IOTBAYUSER.Customers SET NAME='" + name + "',PASSWORD='" + password + "',dob='" + dob + "' WHERE EMAIL='" + email + "'");
     }
     
     //delete customer from database
     public void deleteCustomer(String name, String email, String password, String dob) throws SQLException {
-        st.executeUpdate("DELETE FROM ADMIN1.Customers WHERE EMAIL='" + email + "'");
+        st.executeUpdate("DELETE FROM IOTBAYUSER.Customers WHERE EMAIL='" + email + "'");
     }
     
     public ArrayList<Customer> fectCustomers() throws SQLException {
-        String fetch = "select * from CUSTOMERS";
+        String fetch = "select * from IOTBAYUSER.CUSTOMERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Customer> temp = new ArrayList();
         
@@ -68,7 +68,7 @@ public class DBManager {
     }
     
     public boolean checkCustomer(String email, String password) throws SQLException {
-        String fetch = "select * from ADMIN1.Customers where EMAIL = '" + email + "' and password='" + password + "'";
+        String fetch = "select * from IOTBAYUSER.Customers where EMAIL = '" + email + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
@@ -82,53 +82,71 @@ public class DBManager {
     }
     
     public Product findProduct(String id) throws SQLException {
-        String fetch = "select * from ADMIN1.Products where ID = '" + "'";
+        String fetch = "select * from IOTBAYUSER.Products where ID = " + id + "";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
           String productID = rs.getString(1);
             if (productID.equals(id)) {
                 String productName = rs.getString(2);
-                String productPrice = rs.getString(3);
+                double productPrice = rs.getDouble(3);
                 String productDesc = rs.getString(4);
-                return new Product(productID, productName, productPrice, productDesc);
+                int productQuant = rs.getInt(5);
+                return new Product(productID, productName, productPrice, productDesc, productQuant);
             }            
         }
         return null;
     }
     
     //add customer data into database
-    public void addProduct(String id, String name, String price, String desc) throws SQLException {
-        st.executeUpdate("INSERT INTO ADMIN1.Products " + "VALUES (" + id + ", '" + name + "', " + price + ",'" + desc + "')");
+    public void addProduct(String id, String name, double price, String desc, int quant) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.Products " + "VALUES (" + id + ", '" + name + "', " + price + ",'" + desc + "'," + quant + " )");
     }
     
     //update customer details in database
-    public void updateProduct(String id, String name, String price, String desc) throws SQLException {
-        st.executeUpdate("UPDATE ADMIN1.Products SET ID=" + id + ",NAME='" + name + "',PRICE=" + price + " WHERE DESCRIPTION='" + desc + "'");
+    public void updateProduct(String id, String name, double price, String desc, int quant) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.Products SET ID=" + id + ",NAME='" + name + "',PRICE=" + price + " WHERE DESCRIPTION='" + desc + "'");
     }
     
     //delete customer from database
-    public void deleteProduct(String id, String name, String price, String desc) throws SQLException {
-        st.executeUpdate("DELETE FROM ADMIN1.Products WHERE ID=" + id + "");
+    public void deleteProduct(String id, String name, double price, String desc, int quant) throws SQLException {
+        st.executeUpdate("DELETE FROM IOTBAYUSER.Products WHERE ID=" + id + "");
     }
     
     public ArrayList<Product> fectProducts() throws SQLException {
-        String fetch = "select * from PRODUCTS";
+        String fetch = "select * from IOTBAYUSER.PRODUCTS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Product> temp = new ArrayList();
         
         while (rs.next()) {
             String id = rs.getString(1);
             String name = rs.getString(2);
-            String price = rs.getString(3);
+            double price = rs.getDouble(3);
             String desc = rs.getString(4);
-            temp.add(new Product(id, name, price, desc));
+            int quant = rs.getInt(5);
+            temp.add(new Product(id, name, price, desc, quant));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Product> searchProducts(String input) throws SQLException {
+        String fetch = "select * from IOTBAYUSER.PRODUCTS WHERE Name LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String id = rs.getString(1);
+            String name = rs.getString(2);
+            double price = rs.getDouble(3);
+            String desc = rs.getString(4);
+            int quant = rs.getInt(5);
+            temp.add(new Product(id, name, price, desc, quant));
         }
         return temp;        
     }
     
     public boolean checkProduct(String id) throws SQLException {
-        String fetch = "select * from ADMIN1.Products where ID = '" + id + "'";
+        String fetch = "select * from IOTBAYUSER.Products where ID = '" + id + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
