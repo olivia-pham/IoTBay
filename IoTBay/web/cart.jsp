@@ -15,30 +15,9 @@
     <body>
         <h1>My Cart</h1>
         <table>
-                <tr>
-                    <th>Product Name</th>
-                    <th></th>
-                    <th>Quantity</th>
-                    <th></th>
-                    <th>Total Price</th>
-                </tr>
-        <c:forEach items="${orderLines}" var="orderLineItem">
-            
-            <tr>
-                <td>${orderLineItem.product}</td> 
-                              
-                <td>${orderLineItem.quantity}</td>
-                
-                <td>${OrderLineItem.getSumPrice()}</td>
-            </tr>
-            
-            
-        </c:forEach>
-            <tr></tr>
-            <tr>
-                <td>Total Price:</td>
-                <td>${OrderLineItem.getSumPrice()}<<td>
-            </tr>
+             <thead><th>Product</th><th>Quantity</th><th>Price</th></thead>
+        <tr><td>${orderLineItem.productID}</td><td>${orderLineItem.quantity}</td><td>${orderLineItem.price}</td></tr>    
+
             </table>
 
         <form action="ShippingServlet" method="post">

@@ -11,34 +11,78 @@ import java.io.Serializable;
  * @author olivi
  */
 public class Order implements Serializable {
-    private int ID;
-    private Customer customer;
-    private double total;
-    private String trackingID;
-    private String status;
+    private String ID;
+    private String customerEmail;
     private String shippingAddress;
-    private String cardUsed;
+    private String total;
+    private String status;
+    private String trackingID;    
+    private String shippingID;   
 
-    public Order() { }
+    public Order(String ID, String customerEmail, String shippingAddress, String total, String status, String trackingID, String shippingID) {
+        this.ID = ID;
+        this.customerEmail = customerEmail;
+        this.shippingAddress = shippingAddress;
+        this.total = total;
+        this.status = status;
+        this.trackingID = trackingID;
+        this.shippingID = shippingID;
+    }
 
-    public int getID() { return ID; }
-    public void setID(int ID) { this.ID = ID; }
+    public String getID() {
+        return ID;
+    }
 
-    public Customer getCustomer() { return customer; }
-    public void setCustomer(Customer customer) { this.customer = customer; }
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
-    public double getTotal() { return total; }
-    public void setTotal(double total) { this.total = total; }
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
 
-    public String getTrackingID() { return trackingID; }
-    public void setTrackingID(String trackingID) { this.trackingID = trackingID; }
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
 
-    public String getShippingAddress() { return shippingAddress; }
-    public void setShippingAddress(String shippingAddress) { this.shippingAddress = shippingAddress; }
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
 
-    public String getCardUsed() { return cardUsed; }
-    public void setCardUsed(String cardUsed) { this.cardUsed = cardUsed; }
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTrackingID() {
+        return trackingID;
+    }
+
+    public void setTrackingID(String trackingID) {
+        this.trackingID = trackingID;
+    }
+
+    public String getShippingID() {
+        return shippingID;
+    }
+
+    public void setShippingID(String shippingID) {
+        this.shippingID = shippingID;
+    }
+    
 }

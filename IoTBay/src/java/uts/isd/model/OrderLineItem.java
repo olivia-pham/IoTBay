@@ -12,19 +12,65 @@ import java.text.DecimalFormat;
  * @author olivi
  */
 public class OrderLineItem implements Serializable {
-    private Product product;
-    private int quantity;
+    private String ID;
+    private String orderID;
+    private String productID;
+    private String quantity;
+    private String price;
+    
 
-    public OrderLineItem() { }
-
-    public Product getProduct() { return product; }
-    public void setProduct(Product product) { this.product = product; }
-
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
-
-    public double getSumPrice() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        return Double.parseDouble(df.format(product.getPrice() * quantity));
+    public OrderLineItem(String ID, String orderID, String productID, String quantity, String price) {
+        this.ID = ID;
+        this.orderID = orderID;
+        this.productID = productID;
+        this.quantity = quantity;
+        this.price = price;
     }
+
+    public OrderLineItem() {
+        
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    
+    public String getProductID() {
+        return productID;
+    }
+
+    public void setProductID(String productID) {
+        this.productID = productID;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+
 }
