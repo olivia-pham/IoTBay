@@ -8,6 +8,7 @@ package uts.isd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -38,7 +39,9 @@ public class DeleteProductServlet extends HttpServlet {
             if (product != null) {
               
                 manager.deleteProduct(product.getId(), product.getName(), product.getPrice(), product.getQuantity());
-                session.setAttribute("products", manager.fectProducts());
+                ArrayList<Product> products = manager.fectProducts();
+                session.setAttribute("productList", products);
+                //request.getRequestDispatcher("manageProducts.jsp").forward(request, response);
                 response.sendRedirect("manageProducts.jsp"); 
                 
                 

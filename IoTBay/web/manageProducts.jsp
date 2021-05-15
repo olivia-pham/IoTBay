@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 
 <%
+  
   ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productList");
   session.setAttribute("products", products);
   request.setAttribute("products", products);
@@ -22,7 +23,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="main.jsp" class="button">Go to main</a>
+        <a href="main.jsp" class="button">Go to main</a>            
         <table class="tableCenter">
             <tr><th>Product Name</th> <th>Select</th></tr>
             

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Product;
 import uts.isd.model.dao.DBManager;
+import java.util.ArrayList;
 /**
  *
  * @author User
@@ -37,6 +38,8 @@ public class EditProductServlet extends HttpServlet {
         try {
                 if(manager.findProduct(id) != null){                                
                    manager.updateProduct(id, name, price, desc, quant, type);
+                   ArrayList<Product> products = manager.fectProducts();
+                   session.setAttribute("productList", products);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);

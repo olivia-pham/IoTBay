@@ -106,7 +106,7 @@ public class DBManager {
     
     //update customer details in database
     public void updateProduct(String id, String name, String price, String desc, String quant, String type) throws SQLException {
-        st.executeUpdate("UPDATE ADMIN1.Products SET NAME='" + name + "',PRICE=" + price + ", DESCRIPTION='" + desc + "', TYPE='"+type +"' WHERE ID=" + id + "");
+        st.executeUpdate("UPDATE ADMIN1.Products SET NAME='" + name + "',PRICE=" + price + ", DESCRIPTION='" + desc + "',QUANTITY="+ quant+" ,TYPE='"+type +"' WHERE ID=" + id + "");
     }
     
     //delete customer from database
@@ -133,6 +133,40 @@ public class DBManager {
     
     public ArrayList<Product> searchProducts(String input) throws SQLException {
         String fetch = "select * from ADMIN1.PRODUCTS WHERE Name LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String id = rs.getString(1);
+            String name = rs.getString(2);
+            String price = rs.getString(3);
+            String desc = rs.getString(4);
+            String quant = rs.getString(5);
+            String type = rs.getString(6);
+            temp.add(new Product(id, name, price, desc, quant, type));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Product> searchTProducts(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.PRODUCTS WHERE Type LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String id = rs.getString(1);
+            String name = rs.getString(2);
+            String price = rs.getString(3);
+            String desc = rs.getString(4);
+            String quant = rs.getString(5);
+            String type = rs.getString(6);
+            temp.add(new Product(id, name, price, desc, quant, type));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Product> searchBothProducts(String input, String input2) throws SQLException {
+        String fetch = "select * from ADMIN1.PRODUCTS WHERE Name LIKE '%" + input + "%' AND Type LIKE '%" + input2 + "%'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Product> temp = new ArrayList();
         

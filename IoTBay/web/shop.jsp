@@ -26,10 +26,17 @@
     <body onload="startTime()">
         <div>
         <h1>Search Products</h1>
-        <%if (productO != null){%>
-        <h1>${productO.getName()}</h1>
-        <h1>duck</h1>
-        <%}%>
+        <form action="TServlet" method="get" >
+            <table>
+                <tr><th>Name</th> <th>Type</th></tr>
+            <tr>
+            <td><input type="text" name="searchProduct"  placeholder=""></td>
+            <td><input type="text" name="searchType"  placeholder=""></td>
+            <td><input class="button" type="submit" value="Update"></td>
+            </tr>
+           </table>
+        </form>
+       
         <table class="tableCenter">
             <tr><th>Product Name</th><th>Select</th></tr>
             
@@ -45,13 +52,7 @@
             </c:forEach>
                 
         </table>
-        <form action="TServlet" method="get" >
-            <table><tr>
-            <td><input type="text" name="searchProduct"  placeholder=""></td>
-            <td><input class="button" type="submit" value="Update"></td>
-            </tr>
-           </table>
-        </form>
+        
         </div>
     </body>
 </html>

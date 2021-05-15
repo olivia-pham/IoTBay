@@ -40,9 +40,9 @@ public class ManageListServlet extends HttpServlet {
                 session.setAttribute("productList", products);
             }
             
- 
+            request.setAttribute("message", "hello");
             request.getRequestDispatcher("manageProducts.jsp").include(request, response);
-            response.sendRedirect("manageProducts.jsp"); 
+            //response.sendRedirect("manageProducts.jsp"); 
             
         } catch (SQLException ex) {
             Logger.getLogger(TServlet.class.getName()).log(Level.SEVERE, null, ex);

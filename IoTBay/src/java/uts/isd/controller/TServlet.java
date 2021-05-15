@@ -29,10 +29,19 @@ public class TServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
-        String stuff = request.getParameter("searchProduct");
+        String name = request.getParameter("searchProduct");
+        String type = request.getParameter("searchType");
         try {
-            if (!stuff.equals("")) {
-                ArrayList<Product> products = manager.searchProducts(stuff);
+            if (!name.isEmpty() && type.isEmpty()) {
+                ArrayList<Product> products = manager.searchProducts(name);
+                session.setAttribute("productList", products);
+            }
+            else if (name.isEmpty() && !type.isEmpty()) {
+                ArrayList<Product> products = manager.searchTProducts(type);
+                session.setAttribute("productList", products);
+            }
+            else if (!name.isEmpty() && !type.isEmpty()) {
+                ArrayList<Product> products = manager.searchBothProducts(name, type);
                 session.setAttribute("productList", products);
             }
             else {

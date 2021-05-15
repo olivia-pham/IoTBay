@@ -8,6 +8,7 @@ package uts.isd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Customer;
+import uts.isd.model.Product;
 import uts.isd.model.dao.DBManager;
 
 /**
@@ -37,7 +39,8 @@ public class CreateProductServlet extends HttpServlet  {
  
         try {
             manager.addProduct(id, name, price, desc, quant, type);
-            session.setAttribute("products", manager.fectProducts());
+            ArrayList<Product> products = manager.fectProducts();
+            session.setAttribute("productList", products);
         } catch (SQLException ex) {
             Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
