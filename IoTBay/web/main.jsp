@@ -29,7 +29,7 @@
         <div class="buttonDiv1">
             <a href="shop.jsp" class="button">Shop</a>
             <a href="cart.jsp" class="button">My Cart</a>
-            <a href="cart.jsp" class="button">Create Product</a>
+            <a href="manageProducts.jsp" class="button">ManageProducts</a>
             <a href="EditServlet?email='<%= customer.getEmail()%>'&password='<%=customer.getPassword()%>'" class="button">Account</a>
             <a href="LogoutController" class="button">Logout</a>
         </div>

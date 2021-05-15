@@ -6,8 +6,8 @@
 package uts.isd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import uts.isd.model.Customer;
 import uts.isd.model.Product;
 import uts.isd.model.dao.DBManager;
 
@@ -22,7 +23,7 @@ import uts.isd.model.dao.DBManager;
  *
  * @author User
  */
-public class GetProductServlet extends HttpServlet {
+public class DeleteProductServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,9 +37,10 @@ public class GetProductServlet extends HttpServlet {
             product = manager.findProduct(id);
             if (product != null) {
               
-                session.setAttribute("product", product);
+                manager.deleteProduct(product.getId(), product.getName(), product.getPrice(), product.getQuantity());
+                session.setAttribute("products", manager.fectProducts());
+                response.sendRedirect("manageProducts.jsp"); 
                 
-                request.getRequestDispatcher("product.jsp").include(request, response);
                 
             }
             } catch (SQLException ex) {
@@ -48,4 +50,3 @@ public class GetProductServlet extends HttpServlet {
     }
     
 }
-

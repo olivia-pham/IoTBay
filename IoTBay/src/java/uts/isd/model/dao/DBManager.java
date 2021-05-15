@@ -82,7 +82,7 @@ public class DBManager {
     }
     
     public Product findProduct(String id) throws SQLException {
-        String fetch = "select * from ADMIN1.Products where ID = " + id + "";
+        String fetch = "select * from ADMIN1.Products where ID =" + id + "";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
@@ -92,20 +92,21 @@ public class DBManager {
                 String productPrice = rs.getString(3);
                 String productDesc = rs.getString(4);
                 String productQuant = rs.getString(5);
-                return new Product(productID, productName, productPrice, productDesc, productQuant);
+                String productType = rs.getString(6);
+                return new Product(productID, productName, productPrice, productDesc, productQuant, productType);
             }            
         }
         return null;
     }
     
     //add customer data into database
-    public void addProduct(String id, String name, String price, String desc, String quant) throws SQLException {
-        st.executeUpdate("INSERT INTO ADMIN1.Products " + "VALUES (" + id + ", '" + name + "', " + price + ",'" + desc + "'," + quant + " )");
+    public void addProduct(String id, String name, String price, String desc, String quant, String type) throws SQLException {
+        st.executeUpdate("INSERT INTO ADMIN1.Products " + "VALUES (" + id + ", '" + name + "', " + price + ",'" + desc + "'," + quant + ", '" + type+"')");
     }
     
     //update customer details in database
-    public void updateProduct(String id, String name, String price, String desc, String quant) throws SQLException {
-        st.executeUpdate("UPDATE ADMIN1.Products SET ID=" + id + ",NAME='" + name + "',PRICE=" + price + " WHERE DESCRIPTION='" + desc + "'");
+    public void updateProduct(String id, String name, String price, String desc, String quant, String type) throws SQLException {
+        st.executeUpdate("UPDATE ADMIN1.Products SET ID=" + id + ",NAME='" + name + "',PRICE=" + price + ", TYPE='"+type +"' WHERE DESCRIPTION='" + desc + "'");
     }
     
     //delete customer from database
@@ -124,7 +125,8 @@ public class DBManager {
             String price = rs.getString(3);
             String desc = rs.getString(4);
             String quant = rs.getString(5);
-            temp.add(new Product(id, name, price, desc, quant));
+            String type = rs.getString(6);
+            temp.add(new Product(id, name, price, desc, quant, type));
         }
         return temp;        
     }
@@ -140,7 +142,8 @@ public class DBManager {
             String price = rs.getString(3);
             String desc = rs.getString(4);
             String quant = rs.getString(5);
-            temp.add(new Product(id, name, price, desc, quant));
+            String type = rs.getString(6);
+            temp.add(new Product(id, name, price, desc, quant, type));
         }
         return temp;        
     }

@@ -34,6 +34,22 @@
         <servlet-class>uts.isd.controller.GetProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CreateProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageListServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ManageListServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CancelServlet</servlet-name>
         <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
     </servlet>
@@ -69,6 +85,26 @@
     <servlet-mapping>
         <servlet-name>GetProductServlet</servlet-name>
         <url-pattern>/GetProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>EditProductServlet</servlet-name>
+        <url-pattern>/EditProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <url-pattern>/CreateProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/DeleteProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ManageListServlet</servlet-name>
+        <url-pattern>/ManageListServlet</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

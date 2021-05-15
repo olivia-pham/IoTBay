@@ -22,30 +22,32 @@ import uts.isd.model.dao.DBManager;
  *
  * @author User
  */
-public class GetProductServlet extends HttpServlet {
-    
+public class ManageListServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
-        String id = request.getParameter("productSelect");
-        Product product = null;
-        
+        String stuff = request.getParameter("searchProduct");
         try {
-            product = manager.findProduct(id);
-            if (product != null) {
-              
-                session.setAttribute("product", product);
-                
-                request.getRequestDispatcher("product.jsp").include(request, response);
-                
+            if (!stuff.equals("")) {
+                ArrayList<Product> products = manager.searchProducts(stuff);
+                session.setAttribute("productList", products);
             }
-            } catch (SQLException ex) {
-                Logger.getLogger(GetProductServlet.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
+            else {
+                ArrayList<Product> products = manager.fectProducts();
+                session.setAttribute("productList", products);
             }
+            
+ 
+            request.getRequestDispatcher("manageProducts.jsp").include(request, response);
+            response.sendRedirect("manageProducts.jsp"); 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //request.getRequestDispatcher("shop.jsp").include(request, response);
     }
-    
 }
 
