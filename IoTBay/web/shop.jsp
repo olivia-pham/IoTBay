@@ -14,9 +14,7 @@
   ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productList");
   session.setAttribute("products", products);
   request.setAttribute("products", products);
-  
-  String test = (String) request.getAttribute("test1");
-  //request.setAttribute("test1", test);
+  Product productO = (Product)session.getAttribute("product");
 %>
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -28,15 +26,26 @@
     <body onload="startTime()">
         <div>
         <h1>Search Products</h1>
+        <%if (productO != null){%>
+        <h1>${productO.getName()}</h1>
+        <h1>duck</h1>
+        <%}%>
         <table class="tableCenter">
-            <tr><th>Product Name</th></tr>
+            <tr><th>Product Name</th><th>Select</th></tr>
             
             <c:forEach items="${products}" var="product">
-                <tr><td>${product.getName()}</td><tr>
+                <tr><td>${product.getName()}</td>
+                    <td>
+                        <form action ="GetProductServlet" method="get"> 
+                            <input type="hidden" name = "productSelect" value="${product.getId()}"> 
+                            <input class="button" type="submit" value="select">
+                        </form>
+                    </td>
+                <tr>
             </c:forEach>
                 
         </table>
-        <form action="TServlet" method="post" >
+        <form action="TServlet" method="get" >
             <table><tr>
             <td><input type="text" name="searchProduct"  placeholder=""></td>
             <td><input class="button" type="submit" value="Update"></td>

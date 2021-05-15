@@ -22,34 +22,31 @@ import uts.isd.model.dao.DBManager;
  *
  * @author User
  */
-public class TServlet extends HttpServlet {
-
+public class GetProductServlet extends HttpServlet {
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
-        String stuff = request.getParameter("searchProduct");
+        String id = request.getParameter("productSelect");
+        Product product = null;
+        System.out.println("BUTT!");
+        
         try {
-            if (!stuff.equals("")) {
-                ArrayList<Product> products = manager.searchProducts(stuff);
-                session.setAttribute("productList", products);
+            product = manager.findProduct(id);
+            if (product != null) {
+                System.out.println("YOU DICK!");
+                session.setAttribute("product", product);
+                //response.sendRedirect("product.jsp");
+                request.getRequestDispatcher("product.jsp").include(request, response);
+                //response.sendRedirect("shop.jsp"); 
             }
-            else {
-                ArrayList<Product> products = manager.fectProducts();
-                session.setAttribute("productList", products);
+            } catch (SQLException ex) {
+                Logger.getLogger(GetProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
             }
-            
- 
-            request.getRequestDispatcher("shop.jsp").include(request, response);
-            response.sendRedirect("shop.jsp"); 
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(TServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //request.getRequestDispatcher("shop.jsp").include(request, response);
     }
-
-
-
+    
 }
+

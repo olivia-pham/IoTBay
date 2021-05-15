@@ -82,7 +82,7 @@ public class DBManager {
     }
     
     public Product findProduct(String id) throws SQLException {
-        String fetch = "select * from ADMIN1.Products where ID = '" + "'";
+        String fetch = "select * from ADMIN1.Products where ID = " + id + "";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
