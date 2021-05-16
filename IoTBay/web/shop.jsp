@@ -25,6 +25,7 @@
     </head>
     <body onload="startTime()">
         <div>
+        <a href="main.jsp" class="button">Main</a>
         <h1>Search Products</h1>
         <%if (productO != null){%>
         <h1>${productO.getName()}</h1>
