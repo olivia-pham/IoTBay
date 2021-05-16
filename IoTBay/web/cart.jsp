@@ -46,7 +46,7 @@
                 
         </table>
 
-        <form action="ShippingServlet" method="post">
+        <form action="payment.jsp" method="post">
             <input type="submit" value="Submit Order">
         </form>
         <div class="buttonDiv1">

@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/2/IoTBay/IoTBay/web/main.jsp</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/2/IoTBay/IoTBay/src/java/uts/isd/controller/removeFromCartServlet.java</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/2/IoTBay/IoTBay/web/cart.jsp</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/2/IoTBay/IoTBay/src/java/uts/isd/controller/addToCartServlet.java</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/2/IoTBay/IoTBay/src/java/uts/isd/controller/CartServlet.java</file>
+            <file>file:/C:/Users/JH/Documents/JH/test/IoTBay/IoTBay/web/payment.jsp</file>
+            <file>file:/C:/Users/JH/Documents/JH/test/IoTBay/IoTBay/web/orderdetail.jsp</file>
+            <file>file:/C:/Users/JH/Documents/JH/test/IoTBay/IoTBay/web/register.jsp</file>
+            <file>file:/C:/Users/JH/Documents/JH/test/IoTBay/IoTBay/web/main.jsp</file>
         </group>
     </open-files>
 </project-private>

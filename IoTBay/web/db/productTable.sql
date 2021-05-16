@@ -17,3 +17,4 @@ CREATE TABLE PRODUCTS (
     
     PRIMARY KEY("ID")
 );
+
