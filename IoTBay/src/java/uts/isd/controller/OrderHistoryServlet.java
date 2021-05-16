@@ -27,10 +27,10 @@ public class OrderHistoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String userEmail = request.getParameter("userID");
+        //String userEmail = request.getParameter("userID");
         DBManager manager = (DBManager) session.getAttribute("manager");
         try {
-            ArrayList<Order> orders = manager.fetchOrder(userEmail);
+            ArrayList<Order> orders = manager.fetchOrder();
             session.setAttribute("orders", orders);
             request.getRequestDispatcher("orderHistory.jsp").include(request, response);
         } catch (SQLException ex) {

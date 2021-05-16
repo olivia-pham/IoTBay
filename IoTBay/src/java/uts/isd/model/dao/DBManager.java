@@ -7,7 +7,6 @@ package uts.isd.model.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import uts.isd.model.*;
 
 /**
@@ -129,6 +128,7 @@ public class DBManager {
         return temp;        
     }
 
+
     
     public ArrayList<Product> searchProducts(String input) throws SQLException {
         String fect = "select * from IOTBAYUSER.PRODUCTS WHERE Name LIKE '%" + input + "%'";
@@ -195,13 +195,14 @@ public class DBManager {
         st.executeUpdate("DELETE FROM IOTBAYUSER.ORDERS WHERE ID=" +orderID+"");
     }
     
-    public ArrayList<Order> fetchOrder(String userEmail) throws SQLException {
-        String fetch = "select * from ORDERS where USER_EMAIL='"+userEmail+"'";
+    public ArrayList<Order> fetchOrder() throws SQLException {
+        String fetch = "select * from IOTBAYUSER.ORDERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Order> temp = new ArrayList();
         
         while (rs.next()) {
             int orderID = rs.getInt(1);
+            String userEmail = rs.getString(2);
             String orderDate = rs.getString(3);
             double totalPrice = rs.getDouble(4);
             String shippingAddress = rs.getString(5);

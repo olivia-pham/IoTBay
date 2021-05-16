@@ -6,9 +6,11 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.isd.model.dao.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,15 +27,11 @@
         <form action="GetOrderLines" method="post">
             <table>
                 <tr>
-                    <td><label for="searchOrderID">Search by ID:</label></td>
+                    <td><label for="searchOrderID">Search:</label></td>
                     <td><input type="text" name="searchOrderID"></td>
                     <td><input type="submit" value="Search"></td>
                 </tr>
-                <tr>
-                    <td><label for="searchDate">Search by Date:</label></td>
-                    <td><input type="text" name="searchDate"></td>
-                    <td><input type="submit" value="Search"></td>
-                </tr>
+                
             </table>
         </form>
         <table>
