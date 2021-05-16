@@ -17,11 +17,11 @@
         <div class="form">
         <form action="CreateProductServlet" method="post">
             <table>
-                <tr><td>ID:</td><td><input type="int"  name="id"></td></tr>
+                <tr><td>ID:</td><td><input type="number"  min="1" name="id"></td></tr>
                 <tr><td>Name:</td><td><input type="text"  name="name"></td></tr>
-                <tr><td>Price:</td><td><input type="double"  name="price"></td></tr>
+                <tr><td>Price:</td><td><input type="number" step="0.01"  name="price"></td></tr>
                 <tr><td>Description:</td><td><input type="text" name="desc"></td></tr>
-                <tr><td>Quantity:</td><td><input type="int" name="quant" required></td></tr>
+                <tr><td>Quantity:</td><td><input type="number" name="quant" required></td></tr>
                 <tr><td>Type:</td><td><input type="text" name="type" required></td></tr>
                 <tr><td></td>
                     <td><a href="manageProducts.jsp" class="button">Cancel</a>

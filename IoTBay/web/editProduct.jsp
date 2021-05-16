@@ -22,9 +22,9 @@
          <form action="EditProductServlet" method="get">
             <table>
                 <tr><td>Name:</td><td><input type="text"  name="name" value="<%= product.getName()%>"></td></tr>
-                <tr><td>Price:</td><td><input type="double"  name="price" value="<%= product.getPrice()%>"></td></tr>
+                <tr><td>Price:</td><td><input type="number" step="0.01"  name="price" value="<%= product.getPrice()%>"></td></tr>
                 <tr><td>Description:</td><td><input type="text" name="desc" value="<%= product.getDescription()%>"></td></tr>
-                <tr><td>Quantity:</td><td><input type="int" name="quant" required value="<%= product.getQuantity()%>"></td></tr>
+                <tr><td>Quantity:</td><td><input type="number" name="quant" required value="<%= product.getQuantity()%>"></td></tr>
                 <tr><td>Type:</td><td><input type="text" name="type" required value="<%= product.getType()%>"></td></tr>
                 <input type="hidden" name="id" value="<%= product.getId()%>">
                 <tr><td></td>
