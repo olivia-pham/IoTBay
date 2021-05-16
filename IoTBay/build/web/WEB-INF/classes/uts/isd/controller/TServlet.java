@@ -48,8 +48,6 @@ public class TServlet extends HttpServlet {
                 ArrayList<Product> products = manager.fectProducts();
                 session.setAttribute("productList", products);
             }
-            
- 
             request.getRequestDispatcher("shop.jsp").include(request, response);
             response.sendRedirect("shop.jsp"); 
             

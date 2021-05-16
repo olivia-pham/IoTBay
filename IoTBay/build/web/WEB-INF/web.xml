@@ -34,12 +34,74 @@
         <servlet-class>uts.isd.controller.GetProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CreateProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageListServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ManageListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetProductForEditServlet</servlet-name>
+        <servlet-class>uts.isd.controller.GetProductForEditServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CancelServlet</servlet-name>
         <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StaffRegistrationServlet</servlet-name>
         <servlet-class>uts.isd.controller.StaffRegistrationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CartServlet</servlet-class>
+    </servlet>
+    
+    
+    <servlet>
+        <servlet-name>addToCartServlet</servlet-name>
+        <servlet-class>uts.isd.controller.addToCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>submitOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.submitOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.deleteOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>uts.isd.controller.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuantityUpServlet</servlet-name>
+        <servlet-class>uts.isd.controller.QuantityUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuantityDownServlet</servlet-name>
+        <servlet-class>uts.isd.controller.QuantityDownServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShippingServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ShippingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.SearchOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>removeFromCartServlet</servlet-name>
+        <servlet-class>uts.isd.controller.removeFromCartServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -69,12 +131,10 @@
         <servlet-name>TServlet</servlet-name>
         <url-pattern>/TServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>GetProductServlet</servlet-name>
         <url-pattern>/GetProductServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
         <url-pattern>/EditProductServlet</url-pattern>
@@ -104,6 +164,11 @@
         <servlet-name>CancelServlet</servlet-name>
         <url-pattern>/CancelServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>StaffRegistrationServlet</servlet-name>
+        <url-pattern>/StaffRegistrationServlet</url-pattern>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
@@ -144,6 +209,7 @@
         <servlet-name>removeFromCartServlet</servlet-name>
         <url-pattern>/removeFromCartServlet</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
