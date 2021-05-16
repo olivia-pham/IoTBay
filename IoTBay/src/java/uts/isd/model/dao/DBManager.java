@@ -8,6 +8,7 @@ package uts.isd.model.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import uts.isd.model.User;
+import uts.isd.model.Product;
 
 /**
  *
@@ -21,7 +22,7 @@ public class DBManager {
     
     //Find customer by ID in the database
     public User findUser(String email, String password) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.Customers where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+        String fetch = "select * from ADMIN1.users where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
@@ -30,7 +31,8 @@ public class DBManager {
             if (userEmail.equals(email) && userPass.equals(password)) {
                 String userName = rs.getString(1);
                 String userPhone = rs.getString(4);
-                return new User(userName, userEmail, password, userPhone, 'c');
+                char type = rs.getString(5).charAt(0);
+                return new User(userName, userEmail, password, userPhone, type);
             }            
         }
         return null;
@@ -38,17 +40,17 @@ public class DBManager {
     
     //add customer data into database
     public void addUser(String name, String email, String password, String phone, char accountType) throws SQLException {
-        st.executeUpdate("INSERT INTO isduser.users " + "VALUES ('" + name + "', '" + email + "', '" + password + "','" + phone + "','" + accountType + "')");
+        st.executeUpdate("INSERT INTO ADMIN1.users " + "VALUES ('" + name + "', '" + email + "', '" + password + "','" + phone + "','" + accountType + "')");
     }
     
     //update customer details in database
     public void updateUser(String name, String email, String password, String phone) throws SQLException {
-        st.executeUpdate("UPDATE isduser.users SET NAME='" + name + "',PASSWORD='" + password + "',phone='" + phone + "' WHERE EMAIL='" + email + "'");
+        st.executeUpdate("UPDATE ADMIN1.users SET NAME='" + name + "',PASSWORD='" + password + "',phone='" + phone + "' WHERE EMAIL='" + email + "'");
     }
     
     //delete customer from database
     public void deleteUser(String name, String email, String password, String phone) throws SQLException {
-        st.executeUpdate("DELETE FROM isduser.users WHERE EMAIL='" + email + "'");
+        st.executeUpdate("DELETE FROM ADMIN1.users WHERE EMAIL='" + email + "'");
     }
     
     public ArrayList<User> fectUser() throws SQLException {
@@ -61,12 +63,13 @@ public class DBManager {
             String email = rs.getString(2);
             String password = rs.getString(3);
             String phone = rs.getString(4);
-            temp.add(new User(name, email, password, phone,'c'));
+            char type = rs.getString(5).charAt(0);
+            temp.add(new User(name, email, password, phone, type));
         }
         return temp;        
     }
     public boolean checkUser(String email, String password) throws SQLException {
-        String fetch = "select * from isduser.users where EMAIL = '" + email + "' and password='" + password + "'";
+        String fetch = "select * from ADMIN1.users where EMAIL = '" + email + "' and password='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {
