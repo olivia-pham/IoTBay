@@ -11,45 +11,49 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    ArrayList<Order> orders = (ArrayList<Order>)session.getAttribute("orders");
+    session.setAttribute("orders", orders);
+    request.setAttribute("orders", orders);
+    Order orderO = (Order)session.getAttribute("order");
+%>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order History</title>
     </head>
-    <% 
-        ArrayList<Order> orders = (ArrayList<Order>)session.getAttribute("orders");
-        session.setAttribute("orders", orders);
-        request.setAttribute("orders", orders);
-    %>
-    <body>
+    
+    <body onload="startTime">
+        <div class="form">
+        <a href="main.jsp" class="button">Main</a>
         <h1>My Orders</h1>
-        <form action="GetOrderLines" method="post">
+        <form action="SearchOrderServlet" method="post">
             <table>
-                <tr>
-                    <td><label for="searchOrderID">Search:</label></td>
-                    <td><input type="text" name="searchOrderID"></td>
-                    <td><input type="submit" value="Search"></td>
-                </tr>
-                
-            </table>
+                <tr><th>Order ID</th> <th>Order Date</th></tr>
+            <tr>
+            <td><input type="text" name="searchID"  placeholder=""></td>
+            <td><input type="text" name="searchDate"  placeholder=""></td>
+            <td><input class="button" type="submit" value="Update"></td>
+            </tr>
+           </table>
         </form>
-        <table>
+
+        
+        <table class="tableCenter">
+            <tr><th>Order ID</th><th>Order Date</th><th>Total Price</th></tr>
+            
+            <c:forEach items="${orders}" var="order">
+                <tr><td>${order.getOrderID()}</td>
+                    <td>${order.getOrderDate()}</td>
+                    <td>${order.getTotalPrice()}</td>
+      
                 <tr>
-                    <th>Order ID</th>
-                    <th>Date</th>
-                    <th>Total Price</th>
-                </tr>
-        <c:forEach items="${orders}" var="order">            
-                <tr>
-                    <td>${order.orderID}</td>
-                    <td>${order.orderDate}</td>
-                    <td>${order.totalPrice}</td>
-                </tr>
-        </c:forEach>
+            </c:forEach>
+                
         </table>
-        <div class="buttonDiv1">
-            <a href="main.jsp" class="button">Back</a>
         </div>
+
     </body>
 </html>

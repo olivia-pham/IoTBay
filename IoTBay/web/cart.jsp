@@ -23,40 +23,35 @@
     %>
     <body>
         <h1>My Cart</h1>
-        <table>
-                <tr>
-                    <th>Product Name</th>
-                    <th></th>
-                    <th>Quantity</th>
-                    <th></th>
-                    <th>Price</th>
-                </tr>
-        <c:forEach items="${orderLines}" var="orderLine">
+        
+        <table class="tableCenter">
+            <tr><th>Product Name</th><th>Quantity</th><th>Price</th></tr>
+            
+            <c:forEach items="${orderLines}" var="orderLine">
             
             <tr>
                 <td>${orderLine.productName}</td> 
-                <td>
-                    <form method="post" action="QuantityUp">
-                    <input type="hidden" name="productID" value="${orderLine.productID}">
-                    <input type="submit" value="Up">
-                    </form>
-                </td>                
                 <td>${orderLine.quantity}</td>
-                <td><form method="post" action="QuantityDown">
-                    <input type="hidden" name="productID" value="${orderLine.productID}">
-                    <input type="submit" value="Down">
-                    </form></td>
                 <td>${orderLine.price}</td>
+                <td><form method="post" action="addToCartServlet">
+                    <input type="submit" value="+">
+                </form></td>
+                <td><form method="post" action="removeFromCartServlet">
+                    <input type="submit" value="-">
+                </form></td>
             </tr>
             <tr></tr>
-            <tr>
-                <td>Total Price:</td>
-                <td>${order.totalPrice}<td>
-            </tr>
-        </c:forEach>
-            </table>
-        <form action="OrderServlet" method="post">
+
+            </c:forEach>
+                
+        </table>
+
+        <form action="ShippingServlet" method="post">
             <input type="submit" value="Submit Order">
         </form>
+        <div class="buttonDiv1">
+            <a href="shop.jsp" class="button">Back</a>
+        </div>
+        
     </body>
 </html>

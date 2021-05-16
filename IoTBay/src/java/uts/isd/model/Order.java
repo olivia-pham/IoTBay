@@ -12,10 +12,10 @@ import java.util.LinkedList;
  * @author olivi
  */
 public class Order implements Serializable{
-    private int orderID;
+    private String orderID;
     private String userEmail;
     private String orderDate;
-    private double totalPrice;
+    private String totalPrice;
     private String shippingAddress;
     
     
@@ -23,7 +23,7 @@ public class Order implements Serializable{
     
     }
 
-    public Order(int orderID, String userEmail, String orderDate, double totalPrice, String shippingAddress) {
+    public Order(String orderID, String userEmail, String orderDate, String totalPrice, String shippingAddress) {
         this.orderID = orderID;
         this.userEmail = userEmail;
         this.orderDate = orderDate;
@@ -34,11 +34,11 @@ public class Order implements Serializable{
     
     
     
-    public int getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
     
-    public void setOrderID(int orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 
@@ -59,11 +59,11 @@ public class Order implements Serializable{
         this.orderDate = orderDate;
     }
 
-    public double getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -75,12 +75,6 @@ public class Order implements Serializable{
         this.shippingAddress = shippingAddress;
     }
     
-    public void updatePrice(double price, int quantity) {
-        this.totalPrice = this.totalPrice + (price*quantity);
-    }
-    
-    public void deleteOrderLine(double totalPrice) {
-        this.totalPrice = this.totalPrice - totalPrice;
-    }
+
     
 }

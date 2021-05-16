@@ -11,20 +11,20 @@ import java.io.Serializable;
  * @author olivi
  */
 public class OrderLine implements Serializable{
-    private int orderLineID;
-    private int orderID;
-    private int quantity;
-    private int productID;
+    private String orderLineID;
+    private String orderID;
+    private String quantity;
+    private String productID;
     private String productName;
-    private double totalPrice;
-    private double price;
+    private String totalPrice;
+    private String price;
     
     
     public OrderLine() {
     }
    
     
-    public OrderLine(int orderLineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) {
+    public OrderLine(String orderLineID, String orderID, String quantity, String productID, String productName, String totalPrice, String price) {
         this.orderLineID = orderLineID;
         this.orderID = orderID;
         this.quantity = quantity;
@@ -35,46 +35,36 @@ public class OrderLine implements Serializable{
     }
 
 
-    public int getOrderlineID() {
+    public String getOrderlineID() {
         return orderLineID;
     }
 
-    public void setOrderlineID(int orderLineID) {
+    public void setOrderlineID(String orderLineID) {
         this.orderLineID = orderLineID;
     }
 
-    public int getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-    
-    public void upQuantity() {
-        this.quantity++;
-        this.totalPrice = this.totalPrice + (quantity*price);
-    }
 
-    public int downQuantity() {
-        this.quantity--;
-        this.totalPrice = this.totalPrice - (quantity*price);
-        return this.quantity;
-    }
     
-    public int getProductID() {
+    public String getProductID() {
         return productID;
     }
 
-    public void setProductID(int productID) {
+    public void setProductID(String productID) {
         this.productID = productID;
     }
 
@@ -86,19 +76,19 @@ public class OrderLine implements Serializable{
         this.productName = productName;
     }
 
-    public double getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
     public void setTotalPrice() {
-        this.totalPrice = this.price * this.quantity;
+        this.totalPrice = totalPrice;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

@@ -26,8 +26,9 @@
             <input type="submit" class="submitButton" value="Add to Cart">
         </div>
         </form>
-        <form action="CartServlet" method="post">
-                <input type="submit" value="Go to Cart"/>
-        </form>
+        
+        <div class="buttonDiv1">
+            <a href="CartServlet" class="button">Go to Cart</a>
+        </div>
     </body>
 </html>

@@ -6,6 +6,7 @@
 package uts.isd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -15,14 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.*;
-import uts.isd.model.dao.*;
+import uts.isd.model.OrderLine;
+import uts.isd.model.dao.DBManager;
 
 /**
  *
  * @author olivi
  */
-public class addToCartServlet extends HttpServlet {
+public class removeFromCartServlet extends HttpServlet {
 
     @Override   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
@@ -38,7 +39,7 @@ public class addToCartServlet extends HttpServlet {
         
         try {
                 if (manager.findOrderLine(orderLineID) != null){
-                    manager.addOrderLine(orderLineID, orderID, userID, productID, productName, price, price);
+                    manager.deleteOrderLine(orderLineID);
                     ArrayList<OrderLine> orderLines = manager.fetchOrders();
                     session.setAttribute("orderList", orderLines);
                 } else {
@@ -50,3 +51,6 @@ public class addToCartServlet extends HttpServlet {
             request.getRequestDispatcher("cart.jsp").include(request, response);
         } 
 }
+
+
+
