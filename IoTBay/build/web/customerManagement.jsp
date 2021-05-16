@@ -18,6 +18,7 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Management Page</title>
     </head>
@@ -44,7 +45,6 @@
                     <td>
                         <form action ="GetCustomerServlet" method="get"> 
                             <input type="hidden" name = "customerSelect" value="${customer.getName()}"> 
-                            <input class="button" type="submit" value="select">
                         </form>
                     </td>
                 <tr>
@@ -52,7 +52,6 @@
                     <td>
                         <form action ="GetCustomerServlet" method="get"> 
                             <input type="hidden" name = "customerSelect" value="${customer.getEmail()}"> 
-                            <input class="button" type="submit" value="select">
                         </form>
                     </td>
                 <tr>
@@ -60,7 +59,6 @@
                     <td>
                         <form action ="GetCustomerServlet" method="get"> 
                             <input type="hidden" name = "customerSelect" value="${customer.getPassword()}"> 
-                            <input class="button" type="submit" value="select">
                         </form>
                     </td>
                 <tr>
@@ -68,16 +66,15 @@
                     <td>
                         <form action ="GetCustomerServlet" method="get"> 
                             <input type="hidden" name = "customerSelect" value="${customer.getDob()}"> 
-                            <input class="button" type="submit" value="select">
+
                         </form>
                     </td>
                 <tr>
             </c:forEach>
                 
-        </table>
-        <a href="addCustomer.jsp" class="button">Add a Customer</a>                 
+        </table>                
         <a href="deleteCustomer.jsp" class="button">Delete a Customer</a>
-        <a href="editCustomer.jsp" class="button">Edit a Customer</a>
+        <a href="edit.jsp" class="button">Edit a Customer</a>
         
         </div>
     </body>
