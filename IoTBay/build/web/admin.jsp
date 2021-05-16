@@ -35,7 +35,7 @@
         </div>
         <%} else {%>
             <%if (request.getParameter("email").equals(admin.getEmail()) && request.getParameter("password").equals(admin.getPassword())) { %>
-                <form action="staffRegistration.jsp" method="POST">
+                <form action="customerManagement.jsp" method="POST">
                 <input type="submit" value="Contiune">
                 </from>
             <%} else {%>
