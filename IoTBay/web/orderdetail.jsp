@@ -40,7 +40,8 @@
             <hr>
             <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
         </div>
-        
-        
+            <form action="main.jsp">
+                <input type="submit" value="GetToMain" class="btn">
+            </form>
     </body>
 </html>
