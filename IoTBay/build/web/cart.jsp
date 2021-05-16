@@ -63,8 +63,8 @@
             <% 
             //session.setAttribute("totalPrice", ${orderLine.getTotalPrice()});
             %>
-        <form action="ShippingServlet" method="post">
-            <input type="submit" value="Continue to Shipping">
+        <form action="OrderServlet" method="post">
+            <input type="submit" value="Submit Order">
         </form>
     </body>
 </html>

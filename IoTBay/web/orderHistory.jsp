@@ -48,5 +48,8 @@
                 </tr>
         </c:forEach>
         </table>
+        <div class="buttonDiv1">
+            <a href="main.jsp" class="button">Back</a>
+        </div>
     </body>
 </html>

@@ -7,13 +7,16 @@ package uts.isd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import uts.isd.model.Order;
-import uts.isd.model.OrderLine;
-import uts.isd.model.dao.DBManager;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import uts.isd.model.*;
+import uts.isd.model.dao.*;
 
 /**
  *
@@ -25,31 +28,24 @@ public class addToCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         HttpSession session = request.getSession();
         int productID = Integer.parseInt(request.getParameter("productID").toString());
+        int userID = Integer.parseInt(session.getAttribute("userID").toString());
         String productName = request.getParameter("productName");
-        int orderLineID = Integer.parseInt(session.getAttribute("ID").toString());
         int orderID = Integer.parseInt(session.getAttribute("orderID").toString());
+        int orderLineID = Integer.parseInt(session.getAttribute("orderLineID").toString());
         double price =  Double.parseDouble(request.getParameter("price"));
         DBManager manager = (DBManager) session.getAttribute("manager");
-          
+        
+        
         try {
-            OrderLine orderLine = manager.findOrderLine(orderLineID, productID);
-            if (orderLine == null) {
-                manager.addOrderLine(orderLineID,orderID,1,productID,productName, price, price);
-                Order order = manager.findOrder(orderID);
-                order.updatePrice(price, 1);
-                request.getRequestDispatcher("product.jsp").include(request, response);
+                if(manager.findOrderLine(orderID, userID) != null){
+                   manager.updateOrderLine(orderLineID, orderID, userID, productID, productName, price, price);
+                   ArrayList<OrderLine> orderLines = manager.fetchOrders(orderID);
+                   session.setAttribute("orderList", orderLines);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(addToCartServlet.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
             }
-            else {
-                orderLine.upQuantity();
-                manager.updateOrderLine(orderLineID, orderID, orderLine.getQuantity(), productID, productName, orderLine.getTotalPrice(), price);
-                Order order = manager.findOrder(orderID);
-                order.updatePrice(price, orderLine.getQuantity());
-                request.getRequestDispatcher("product.jsp").include(request, response);
-            }
-        
-        } catch (SQLException ex) {
-            Logger.getLogger(CartServlet.class.getName()).log(Level.SEVERE, null, ex);
+            request.getRequestDispatcher("manageProducts.jsp").include(request, response);
         } 
-        
-        }
 }

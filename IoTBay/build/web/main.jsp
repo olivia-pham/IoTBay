@@ -28,7 +28,7 @@
         </table>       
         <div class="buttonDiv1">
             <a href="shop.jsp" class="button">Shop</a>
-            <a href="cart.jsp" class="button">My Cart</a>
+            <a href="CartServlet" class="button">My Cart</a>
             <a href="OrderHistoryServlet" class="button">My Order History</a>
             <a href="cart.jsp" class="button">Create Product</a>
             <a href="EditServlet?email='<%= customer.getEmail()%>'&password='<%=customer.getPassword()%>'" class="button">Account</a>

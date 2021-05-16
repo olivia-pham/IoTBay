@@ -249,13 +249,14 @@ public class DBManager {
         st.executeUpdate("DELETE FROM IOTBAYUSER.ORDERLINE WHERE ID=" +orderLineID+"");
     }
     
-    public ArrayList<OrderLine> fetchOrders(int orderID) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.ORDERLINE where ORDER_ID="+orderID+"";
+    public ArrayList<OrderLine> fetchOrders() throws SQLException {
+        String fetch = "select * from IOTBAYUSER.ORDERLINE";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<OrderLine> temp = new ArrayList<OrderLine>();
         
         while (rs.next()) {
             int orderLineID = rs.getInt(1);
+            int orderID = rs.getInt(2);
             int quantity = rs.getInt(3);                
             int productID = rs.getInt(4);
             String productName = rs.getString(5);
