@@ -35,7 +35,7 @@ public class EditServlet extends HttpServlet {
         try {
             customer = manager.findUser(email, password);
                 if(customer!= null){   
-                    session.setAttribute("customer", customer);                            
+                    session.setAttribute("user", customer);                            
                     request.getRequestDispatcher("edit.jsp").include(request, response);
                 } else {
                     session.setAttribute("existErr", "Error: Customer does not exist in database");

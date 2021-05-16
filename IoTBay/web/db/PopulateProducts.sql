@@ -18,7 +18,7 @@
  * Created: 17/05/2021
  */
 
-INSERT INTO ADMIN1.PRODUCTS (ID, "NAME", PRICE, DESCRIPTION, QUANTITY, "TYPE") 
+INSERT INTO PRODUCTS (ID, "NAME", PRICE, DESCRIPTION, QUANTITY, "TYPE") 
 	VALUES (32587562, 'Dell 2 in one', 5000, 'Its a computer', 3, 'Computer'),
 	 (123123, 'Alienware thing', 3232, 'Its a bad computer', 1, 'Computer'),
 	 (4235424, 'Thinkpad', 3214, 'Its an ok computer', 3, 'Computer'),

@@ -17,7 +17,7 @@
  * Author:  User
  * Created: 17/05/2021
  */
-INSERT INTO ADMIN1.USERS ("NAME", EMAIL, PASSWORD, PHONE, ACCOUNTTYPE) 
+INSERT INTO USERS ("NAME", EMAIL, PASSWORD, PHONE, ACCOUNTTYPE) 
 	VALUES ('Matthew', 'matthew@horner.com', 'password1', '13547757', 'c'),
 
 	 ('John', 'johnman@man.com', 'password', '3215565', 'c'),

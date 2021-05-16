@@ -14,7 +14,6 @@
 <%
   ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productList");
   session.setAttribute("products", products);
-  request.setAttribute("products", products);
   Product productO = (Product)session.getAttribute("product");
 %>
 <html>

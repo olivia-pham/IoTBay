@@ -4,14 +4,9 @@
  * and open the template in the editor.
  */
 /**
- * Author:  olivi
- * Created: 09/05/2021
+ * Author:  jkmod
+ * Created: 17/05/2021
  */
-CREATE TABLE USERS
-("NAME" VARCHAR (50),
-EMAIL VARCHAR (50) NOT NULL,
-PASSWORD VARCHAR(20),
-PHONE VARCHAR(10),
-ACCOUNTTYPE CHAR, 
-PRIMARY KEY (EMAIL));
-
+INSERT INTO ORDERS (USER_ID, ORDER_DATE, TOTAL, SHIPPING_ADDRESS, TRACKING_ID)
+VALUES (1, '05/05/2021', 30.00, '68 Belview St Sydney', '12341234')
+;
