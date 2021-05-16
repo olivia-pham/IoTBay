@@ -24,6 +24,13 @@
         <hr>
         <table id="profile_table" class="tableCenter">
             <thead><th>Name</th><th>Email</th><th>Password</th><th>Date of Birth</th></thead>
+        <tr><td>${customer.name}</td><td>${customer.email}</td><td>${customer.password}</td><td>${customer.dob}</td></tr>        
+        </table>       
+        <div class="buttonDiv1">
+            <a href="shop.jsp" class="button">Shop</a>
+            <a href="CartServlet" class="button">My Cart</a>
+            <a href="OrderHistoryServlet" class="button">My Order History</a>
+            <a href="cart.jsp" class="button">Create Product</a>
         <tr><td>${user.name}</td><td>${user.email}</td><td>${user.password}</td><td>${user.dob}</td></tr>        
         </table> 
         
