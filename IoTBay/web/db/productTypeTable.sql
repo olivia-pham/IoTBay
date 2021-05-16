@@ -5,7 +5,9 @@
  */
 /**
  * Author:  User
- * Created: 10/05/2021
+ * Created: 15/05/2021
  */
-
-SELECT * FROM PRODUCTs
+CREATE TABLE PRODUCTTYPES (
+    "TYPE" VARCHAR(50),
+    PRIMARY KEY("TYPE")
+);

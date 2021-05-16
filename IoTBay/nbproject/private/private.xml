@@ -3,15 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/src/java/uts/isd/model/dao/DB.java</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/web/shop.jsp</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/src/java/uts/isd/model/dao/DBConnector.java</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/src/java/uts/isd/controller/RegisterServlet.java</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/src/java/uts/isd/model/dao/DBManager.java</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/web/index.jsp</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/web/cart.jsp</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/web/css/main.css</file>
-            <file>file:/C:/Users/olivi/OneDrive/Documents/UTS/2021%20AUTUMN/Intro%20to%20Software%20Development/Development/IoTBay_backup/IoTBay/web/main.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/src/java/uts/isd/model/dao/DBManager.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/web/shop.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/web/deleteProducts.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/src/java/uts/isd/controller/ManageListServlet.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/web/index.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/web/manageProducts.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/src/java/uts/isd/controller/TServlet.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/IoTBay/IoTBay/web/editProduct.jsp</file>
         </group>
     </open-files>
 </project-private>

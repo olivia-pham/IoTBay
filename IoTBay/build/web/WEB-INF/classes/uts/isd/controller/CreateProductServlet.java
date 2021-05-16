@@ -22,31 +22,31 @@ import uts.isd.model.dao.DBManager;
 
 /**
  *
- * @author olivi
+ * @author User
  */
-public class RegisterServlet extends HttpServlet {
-
-    @Override
+public class CreateProductServlet extends HttpServlet  {
+     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String id = request.getParameter("id");
         String name = request.getParameter("name");
-        String dob = request.getParameter("dob");
+        String price = request.getParameter("price");
+        String desc = request.getParameter("desc");
+        String quant = request.getParameter("quant");
+        String type = request.getParameter("type");
         DBManager manager = (DBManager) session.getAttribute("manager");
-        validator.clear(session);
-        
+ 
         try {
-            manager.addCustomer(name, email, password, dob);
+            manager.addProduct(id, name, price, desc, quant, type);
+            ArrayList<Product> products = manager.fectProducts();
+            session.setAttribute("productList", products);
         } catch (SQLException ex) {
             Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-            Customer customer = new Customer(name, email, password, dob);
-            session.setAttribute("customer", customer);
-            request.getRequestDispatcher("main.jsp").include(request, response);
+            request.getRequestDispatcher("manageProducts.jsp").include(request, response);
 
         
     }
+    
 }
