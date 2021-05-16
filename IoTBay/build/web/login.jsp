@@ -34,6 +34,7 @@
                 <tr><td>Password:</td>
                     <td><input type="password" name="password" required="true" placeholder="<%=(passErr != null ? passErr : "Enter password")%>"></td>
                 </tr>
+                        
             </table>
             <div class="buttonDiv1">
                 <input type="submit" class="submitButton" value="Login">

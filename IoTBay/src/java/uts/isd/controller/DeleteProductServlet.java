@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Customer;
+import uts.isd.model.OrderLine;
 import uts.isd.model.Product;
 import uts.isd.model.dao.DBManager;
 
@@ -38,7 +39,7 @@ public class DeleteProductServlet extends HttpServlet {
             product = manager.findProduct(id);
             if (product != null) {
               
-                manager.deleteProduct(product.getId(), product.getName(), product.getPrice(), product.getQuantity());
+                manager.deleteProduct(product.getId(), product.getName(), product.getPrice(), product.getQuantity(), product.getType());
                 ArrayList<Product> products = manager.fectProducts();
                 session.setAttribute("productList", products);
                 //request.getRequestDispatcher("manageProducts.jsp").forward(request, response);
