@@ -15,10 +15,12 @@ import javax.servlet.http.HttpSession;
  */
 public class Validator implements Serializable{
      
-   private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";      
-   private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";       
-   private String passwordPattern = "([a-z]{4,})([0-9]*)";       
-              
+   private final String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";      
+   private final String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";       
+   private final String passwordPattern = "([a-z]{4,})([0-9]*)";       
+   private final String phonePattern = "[0-9]{4} [0-9]{3} [0-9]{3}";
+   private boolean failed = false;
+   
    public Validator(){    
    }       
 
@@ -39,6 +41,13 @@ public class Validator implements Serializable{
    public boolean validatePassword(String password){
       return validate(passwordPattern, password); 
    }
+   
+   
+   public boolean validateContactNumber(String phone){
+      return validate(phonePattern, phone); 
+   }
+   
+   public boolean failed() { return failed; }
    
    public void clear(HttpSession session){
        session.setAttribute("emailErr", "Enter email");

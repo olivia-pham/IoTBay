@@ -29,6 +29,10 @@
         <servlet-name>CancelServlet</servlet-name>
         <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffRegistrationServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffRegistrationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -56,6 +60,10 @@
     <servlet-mapping>
         <servlet-name>CancelServlet</servlet-name>
         <url-pattern>/CancelServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffRegistrationServlet</servlet-name>
+        <url-pattern>/StaffRegistrationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

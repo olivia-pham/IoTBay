@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import uts.isd.model.Customer;
+import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
-
+import uts.isd.model.dao.*;
 
 
 /**
@@ -20,15 +20,19 @@ import uts.isd.model.dao.DBManager;
  */
 public class LoginServlet extends HttpServlet {
     
+    private DBManager manager;
+    private DBConnector Connector;
+    
     @Override   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   
             throws ServletException, IOException {  
         HttpSession session = request.getSession();
+        long lastTime = session.getLastAccessedTime();
         Validator validator = new Validator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         DBManager manager = (DBManager) session.getAttribute("manager");
-        Customer customer = null;
+        User user = null;
         validator.clear(session);
         
         if(!validator.validateEmail(email)){
@@ -39,9 +43,9 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").include(request, response);
         } else {
             try {
-                customer = manager.findCustomer(email, password);
-                    if(customer!= null){   
-                        session.setAttribute("customer", customer);                            
+                user = manager.findUser(email, password);
+                    if(user!= null){   
+                        session.setAttribute("user", user);                            
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     } else {
                         session.setAttribute("existErr", "Error: Customer does not exist in database");

@@ -19,7 +19,7 @@
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String dob = request.getParameter("dob");
+            String phone = request.getParameter("phone");
             
             
         %>
@@ -27,8 +27,8 @@
         <div class="centerForm">
         <p>Your email is: <%= email%></p>
         <p>Your password is: <%= password%></p>
-        <p>Your DOB is: <%= dob%></p>
-
+        <p>Your Phone Number is: <%= phone%></p>
+        
         <div class="buttonDiv1">
             <a class="mainButton" href="main.jsp">Main Page</a>
         </div>
@@ -38,7 +38,7 @@
         </div>
         </div>
         <%
-            Customer customer = new Customer(name, email, password, dob);
+            Customer customer = new Customer(name, email, password, phone);
             session.setAttribute("customer", customer);
         %>
         
