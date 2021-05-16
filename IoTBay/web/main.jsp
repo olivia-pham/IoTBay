@@ -34,7 +34,6 @@
             <a href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'" class="button">Account</a>
             <a href="CartServlet" class="button">My Cart</a>
             <a href="OrderHistoryServlet" class="button">My Order History</a>
-            <a href="cart.jsp" class="button">Create Product</a>
             <a href="LogoutController" class="button">Logout</a>
         </div>
     </body>
