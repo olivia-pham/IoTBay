@@ -15,38 +15,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Product;
+import uts.isd.model.*;
 import uts.isd.model.dao.DBManager;
 
 /**
  *
- * @author User
+ * @author olivi
  */
-public class TServlet extends HttpServlet {
-
+public class OrderHistoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        String userEmail = request.getParameter("userID");
         DBManager manager = (DBManager) session.getAttribute("manager");
-        String stuff = request.getParameter("searchProduct");
         try {
-            if (!stuff.equals("")) {
-                ArrayList<Product> products = manager.searchProducts(stuff);
-                session.setAttribute("productList", products);
-            }
-            else {
-                ArrayList<Product> products = manager.fectProducts();
-                session.setAttribute("productList", products);
-            }
-            request.getRequestDispatcher("shop.jsp").include(request, response);
-            response.sendRedirect("shop.jsp"); 
-            
+            ArrayList<Order> orders = manager.fetchOrder(userEmail);
+            session.setAttribute("orders", orders);
+            request.getRequestDispatcher("orderHistory.jsp").include(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(TServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderHistoryServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //request.getRequestDispatcher("shop.jsp").include(request, response);
     }
+
 
 
 

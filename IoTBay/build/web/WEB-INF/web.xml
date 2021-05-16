@@ -41,6 +41,22 @@
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>uts.isd.controller.CartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addToCartServlet</servlet-name>
+        <servlet-class>uts.isd.controller.addToCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>submitOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.submitOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.deleteOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>uts.isd.controller.OrderHistoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -80,6 +96,22 @@
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addToCartServlet</servlet-name>
+        <url-pattern>/addToCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>submitOrderServlet</servlet-name>
+        <url-pattern>/submitOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteOrderServlet</servlet-name>
+        <url-pattern>/deleteOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <url-pattern>/OrderHistoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -7,6 +7,7 @@ package uts.isd.model.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import uts.isd.model.*;
 
 /**
@@ -21,8 +22,8 @@ public class DBManager {
     
     //Find customer by ID in the database
     public Customer findCustomer(String email, String password) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.CUSTOMERS where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.CUSTOMERS where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+        ResultSet rs = st.executeQuery(fect);
         
         while (rs.next()) {
             String customerEmail = rs.getString(2);
@@ -52,8 +53,8 @@ public class DBManager {
     }
     
     public ArrayList<Customer> fectCustomers() throws SQLException {
-        String fetch = "select * from IOTBAYUSER.CUSTOMERS";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.CUSTOMERS";
+        ResultSet rs = st.executeQuery(fect);
         ArrayList<Customer> temp = new ArrayList();
         
         while (rs.next()) {
@@ -67,8 +68,8 @@ public class DBManager {
     }
     
     public boolean checkCustomer(String email, String password) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.Customers where EMAIL = '" + email + "' and password='" + password + "'";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.Customers where EMAIL = '" + email + "' and password='" + password + "'";
+        ResultSet rs = st.executeQuery(fect);
         
         while (rs.next()) {
             String customerEmail = rs.getString(2);
@@ -81,8 +82,8 @@ public class DBManager {
     }
     
     public Product findProduct(String id) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.Products where ID = " + id + "";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.Products where ID = " + id + "";
+        ResultSet rs = st.executeQuery(fect);
         
         while (rs.next()) {
           String productID = rs.getString(1);
@@ -113,8 +114,8 @@ public class DBManager {
     }
     
     public ArrayList<Product> fectProducts() throws SQLException {
-        String fetch = "select * from IOTBAYUSER.PRODUCTS";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.PRODUCTS";
+        ResultSet rs = st.executeQuery(fect);
         ArrayList<Product> temp = new ArrayList();
         
         while (rs.next()) {
@@ -127,10 +128,11 @@ public class DBManager {
         }
         return temp;        
     }
+
     
     public ArrayList<Product> searchProducts(String input) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.PRODUCTS WHERE Name LIKE '%" + input + "%'";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.PRODUCTS WHERE Name LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fect);
         ArrayList<Product> temp = new ArrayList();
         
         while (rs.next()) {
@@ -145,8 +147,8 @@ public class DBManager {
     }
     
     public boolean checkProduct(String id) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.Products where ID = '" + id + "'";
-        ResultSet rs = st.executeQuery(fetch);
+        String fect = "select * from IOTBAYUSER.Products where ID = '" + id + "'";
+        ResultSet rs = st.executeQuery(fect);
         
         while (rs.next()) {
             String productID = rs.getString(1);
@@ -158,70 +160,74 @@ public class DBManager {
     }
     // Order DBManager
     
-    public Order findOrder(String ID) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.ORDERS where ID = " + ID + "'";
+    public Order findOrder(int oID) throws SQLException {
+        String fetch = "select * from IOTBAYUSER.ORDERS where ID = " + oID + "'";
         ResultSet rs = st.executeQuery(fetch);
         
-        while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them Stringo Strings
-            String orderID = rs.getString(1);
-            if (orderID == ID) {
-                String customerEmail = rs.getString(2);
-                String shippingAddress = rs.getString(3);
-                String total = rs.getString(4);
-                String status = rs.getString(5);
-                String trackingID = rs.getString(6);
-                String shipmentID = rs.getString(7);
-                return new Order(orderID, customerEmail, shippingAddress, total, status, trackingID, shipmentID);                
+        while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them into Strings
+            int orderID = rs.getInt(1);
+            
+            if (orderID == oID) {
+                String userEmail = rs.getString(2);
+                String orderDate = rs.getString(3);
+                double totalPrice = rs.getDouble(4);
+                String shippingAddress = rs.getString(5);
+                return new Order(orderID, userEmail, orderDate, totalPrice, shippingAddress);
             }
             
         }
         return null;
     }
     
-    public void addOrder(String orderID, String customerEmail) throws SQLException {
-        st.executeUpdate("INSERT StringO IOTBAYUSER.ORDERS VALUES ("+orderID+", '" +customerEmail+"', null, null, null, null, null)");          
+    public void addOrder(int orderID, String userEmail) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERS VALUES ("+orderID+", '" +userEmail+"', null, null, null, null, null)");
+              
+        
+          
     }
     
-    public void updateOrder(String orderID, String customerEmail, String shippingAddress, String total, String status, String trackingID, String shipmentID) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.ORDERS SET TOTAL="+total+",SHIPPING_ADDRESS='"+
-                shippingAddress+"' WHERE ID="+orderID + " AND CUSTOMER_EMAIL='"+customerEmail+"'");
+    public void updateOrder(int orderID, int userEmail, String orderDate, double totalPrice, String shippingAddress) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.ORDERS SET ORDER_DATE='"+orderDate+"',TOTAL="+totalPrice+",SHIPPING_ADDRESS='"+
+                shippingAddress+"' WHERE ID="+orderID + " AND USER_EMAIL='"+userEmail+"'");
     }
     
-    public void deleteOrder(String orderID) throws SQLException {
+    public void deleteOrder(int orderID) throws SQLException {
         st.executeUpdate("DELETE FROM IOTBAYUSER.ORDERS WHERE ID=" +orderID+"");
     }
     
-    public ArrayList<Order> fetchOrders(String customerEmail) throws SQLException {
-        String fetch = "select * from ORDERS where CUSTOMER_EMAIL='"+customerEmail+"'";
+    public ArrayList<Order> fetchOrder(String userEmail) throws SQLException {
+        String fetch = "select * from ORDERS where USER_EMAIL='"+userEmail+"'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Order> temp = new ArrayList();
         
         while (rs.next()) {
-            String orderID = rs.getString(1);
-            String shippingAddress = rs.getString(3);
-            String total = rs.getString(4);
-            String status = rs.getString(5);
-            String trackingID = rs.getString(6);
-            String shipmentID = rs.getString(7);               
+            int orderID = rs.getInt(1);
+            String orderDate = rs.getString(3);
+            double totalPrice = rs.getDouble(4);
+            String shippingAddress = rs.getString(5);
             
-            temp.add(new Order(orderID, customerEmail, shippingAddress, total, status, trackingID, shipmentID));
+            temp.add(new Order(orderID, userEmail, orderDate, totalPrice, shippingAddress));
         }
         return temp;
     }
-
-    //OrderLineItem
-    public OrderLineItem findOrderLineItem(String oID, String pID) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.ORDERLINEITEM where orderID = " + oID + " and productID="+pID+"";
+    
+    //orderline dbmanager
+    public OrderLine findOrderLine(int oID, int pID) throws SQLException {
+        String fetch = "select * from IOTBAYUSER.ORDERLINE where ID = " + oID + " and PRODUCT_ID="+pID+"";
         ResultSet rs = st.executeQuery(fetch);
         
-        while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them Stringo Strings
-            String orderID = rs.getString(2);
-            String productID = rs.getString(3);
-            if (orderID == orderID && productID==productID) {
-                String orderLineItemID = rs.getString(1);
-                String quantity = rs.getString(4);
-                String price = rs.getString(5);
-                return new OrderLineItem(orderLineItemID, orderID, productID, quantity, price);
+        while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them into Strings
+            
+            int orderID = rs.getInt(2);
+            int productID = rs.getInt(4);
+            if (orderID == oID && productID==pID) {
+                
+                int orderLineID = rs.getInt(1);
+                int quantity = rs.getInt(3);
+                String productName = rs.getString(5);
+                double totalPrice = rs.getDouble(6);
+                double price = rs.getDouble(7);
+                return new OrderLine(orderLineID, orderID, quantity, productID, productName, totalPrice, price);
                 
             }
             
@@ -229,34 +235,35 @@ public class DBManager {
         return null;
     }
     
-    public void addOrderLineItem(String orderLineItemID, String orderID, String productID, String quantity, String price) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERLINEITEM " + "VALUES (" +orderLineItemID+", " +orderID+", "+productID+", "+quantity+", "+ price+")");
+    public void addOrderLine(int orderLineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERLINE " + "VALUES (" +orderLineID+", " +orderID+", "+quantity+", "+productID+", '"+productName+"', "+totalPrice+", "+ price+")");
     }
     
-    public void updateOrderLineItem(String orderLineItemID, String orderID, String productID, String quantity, String price) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.ORDERLINEITEM SET orderID="+orderID+",productID="+productID+",quantity="+quantity+",price="+price+" WHERE orderLineID="+orderLineItemID+"");
+    public void updateOrderLine(int orderLineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.ORDERLINE SET ORDER_ID="+orderID+",QUANTITY="+quantity+",PRODUCT_ID="+productID+",PRODUCT_NAME='"+
+                productName+"',TOTAL_PRICE="+totalPrice+", PRICE="+price+" WHERE ID="+orderLineID+"");
     }
     
-    public void deleteOrderLineItem(String orderLineItemID) throws SQLException {
-        st.executeUpdate("DELETE FROM IOTBAYUSER.ORDERLINEITEM WHERE orderLineID=" +orderLineItemID+"");
+    public void deleteOrderLine(int orderLineID) throws SQLException {
+        st.executeUpdate("DELETE FROM IOTBAYUSER.ORDERLINE WHERE ID=" +orderLineID+"");
     }
     
-    public ArrayList<OrderLineItem> fetchOrderLineItems(String orderID) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.ORDERLINEITEM where orderID="+orderID+"";
+    public ArrayList<OrderLine> fetchOrders(int orderID) throws SQLException {
+        String fetch = "select * from IOTBAYUSER.ORDERLINE where ORDER_ID="+orderID+"";
         ResultSet rs = st.executeQuery(fetch);
-        ArrayList<OrderLineItem> temp = new ArrayList<OrderLineItem>();
+        ArrayList<OrderLine> temp = new ArrayList<OrderLine>();
         
         while (rs.next()) {
-            String orderLineItemID = rs.getString(1);
-            String productID = rs.getString(3);               
-            String quantity = rs.getString(4);
-            String price = rs.getString(5);
-            
-            temp.add(new OrderLineItem(orderLineItemID, orderID, productID, quantity, price));
+            int orderLineID = rs.getInt(1);
+            int quantity = rs.getInt(3);                
+            int productID = rs.getInt(4);
+            String productName = rs.getString(5);
+            double totalPrice = rs.getDouble(6);
+            double price = rs.getDouble(7);
+            temp.add(new OrderLine(orderLineID, orderID, quantity, productID, productName, totalPrice, price));
         }
         return temp;
     }
-    
-    
-    
+
+
 }
