@@ -214,7 +214,7 @@ public class DBManager {
     
     //orderline dbmanager
     public OrderLine findOrderLine(int oID, int pID) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.ORDERLINE where ID = " + oID + " and PRODUCT_ID="+pID+"";
+        String fetch = "select * from IOTBAYUSER.ORDER_LINE where ID = " + oID + " and PRODUCT_ID="+pID+"";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them into Strings
@@ -237,22 +237,22 @@ public class DBManager {
     }
     
     public void addOrderLine(int orderLineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERLINE " + "VALUES (" +orderLineID+", " +orderID+", "+quantity+", "+productID+", '"+productName+"', "+totalPrice+", "+ price+")");
+        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDER_LINE " + "VALUES (" +orderLineID+", " +orderID+", "+quantity+", "+productID+", '"+productName+"', "+totalPrice+", "+ price+")");
     }
     
     public void updateOrderLine(int orderLineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.ORDERLINE SET ORDER_ID="+orderID+",QUANTITY="+quantity+",PRODUCT_ID="+productID+",PRODUCT_NAME='"+
+        st.executeUpdate("UPDATE IOTBAYUSER.ORDER_LINE SET ORDER_ID="+orderID+",QUANTITY="+quantity+",PRODUCT_ID="+productID+",PRODUCT_NAME='"+
                 productName+"',TOTAL_PRICE="+totalPrice+", PRICE="+price+" WHERE ID="+orderLineID+"");
     }
     
     public void deleteOrderLine(int orderLineID) throws SQLException {
-        st.executeUpdate("DELETE FROM IOTBAYUSER.ORDERLINE WHERE ID=" +orderLineID+"");
+        st.executeUpdate("DELETE FROM IOTBAYUSER.ORDER_LINE WHERE ID=" +orderLineID+"");
     }
     
     public ArrayList<OrderLine> fetchOrders() throws SQLException {
-        String fetch = "select * from IOTBAYUSER.ORDERLINE";
+        String fetch = "select * from IOTBAYUSER.ORDER_LINE";
         ResultSet rs = st.executeQuery(fetch);
-        ArrayList<OrderLine> temp = new ArrayList<OrderLine>();
+        ArrayList<OrderLine> temp = new ArrayList();
         
         while (rs.next()) {
             int orderLineID = rs.getInt(1);

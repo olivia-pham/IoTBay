@@ -7,22 +7,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.*"%>
+<%@page import="uts.isd.model.dao.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% 
-    
-    ArrayList<OrderLine> orderLines = (ArrayList<OrderLine>) session.getAttribute("orderLines");
-    session.setAttribute("orderLines", orderLines);
-    request.setAttribute("orderLines", orderLines);
-    OrderLine order0 = (OrderLine)session.getAttribute("orderLine");
-    
-%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cart</title>
     </head>
-    <body onload="startTime()">
+    <% 
+        ArrayList<OrderLine> orderLines = (ArrayList<OrderLine>) session.getAttribute("orderLines");
+        session.setAttribute("orderLines", orderLines);
+        request.setAttribute("orderLines", orderLines);
+    %>
+    <body>
         <h1>My Cart</h1>
         <table>
                 <tr>
@@ -35,34 +34,27 @@
         <c:forEach items="${orderLines}" var="orderLine">
             
             <tr>
-                <td>${orderLine.getProductName()}</td> 
+                <td>${orderLine.productName}</td> 
                 <td>
                     <form method="post" action="QuantityUp">
-                    <input type="hidden" name="orderLineID" value="${orderLine.orderLineID}">
                     <input type="hidden" name="productID" value="${orderLine.productID}">
                     <input type="submit" value="Up">
                     </form>
-                    </td>                
-                <td>${orderLine.getQuantity()}</td>
+                </td>                
+                <td>${orderLine.quantity}</td>
                 <td><form method="post" action="QuantityDown">
-                    <input type="hidden" name="orderLineID" value="${orderLine.orderLineID}">
                     <input type="hidden" name="productID" value="${orderLine.productID}">
                     <input type="submit" value="Down">
                     </form></td>
-                <td>${orderLine.getPrice()}</td>
+                <td>${orderLine.price}</td>
             </tr>
-            
-            
-        </c:forEach>
             <tr></tr>
             <tr>
                 <td>Total Price:</td>
-                <td>${orderLine.getTotalPrice()}<td>
+                <td>${order.totalPrice}<td>
             </tr>
+        </c:forEach>
             </table>
-            <% 
-            //session.setAttribute("totalPrice", ${orderLine.getTotalPrice()});
-            %>
         <form action="OrderServlet" method="post">
             <input type="submit" value="Submit Order">
         </form>

@@ -24,28 +24,16 @@ import uts.isd.model.dao.*;
 public class CartServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
-        int orderID = Integer.parseInt(session.getAttribute("orderID").toString());
-        int productID = Integer.parseInt(session.getAttribute("productID").toString());
         try {
             ArrayList<OrderLine> orderLines = manager.fetchOrders();
             session.setAttribute("orderLines", orderLines);
-            Order order = manager.findOrder(orderID);
-            double totalPrice = 0;
-            for (OrderLine orderLine : orderLines) {
-                totalPrice = totalPrice + orderLine.getTotalPrice();
-            }
-            order.setTotalPrice(totalPrice);
-            session.setAttribute("order", order);
             request.getRequestDispatcher("cart.jsp").include(request, response);
-            
         } catch (SQLException ex) {
             Logger.getLogger(CartServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-
 }
