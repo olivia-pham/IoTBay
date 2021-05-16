@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import uts.isd.model.User;
 import uts.isd.model.Product;
+import uts.isd.model.Customer;
 
 /**
  *
@@ -82,6 +83,51 @@ public class DBManager {
         return false;
     }
     
+    public ArrayList<Customer> searchCustomers(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Name LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> searchTCustomers(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Type LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> searchBothCustomers(String input, String input2) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Name LIKE '%" + input + "%' AND Email LIKE '%" + input2 + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
     public Product findProduct(String id) throws SQLException {
         String fetch = "select * from ADMIN1.Products where ID =" + id + "";
         ResultSet rs = st.executeQuery(fetch);
@@ -99,6 +145,38 @@ public class DBManager {
         }
         return null;
     }
+    
+    public Customer findCustomer(String name) throws SQLException {
+        String fetch = "select * from ADMIN1.Products where NAME =" + name + "";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()) {
+          String customerName = rs.getString(1);
+            if (customerName.equals(name)) {
+                String customerEmail = rs.getString(2);
+                String customerPassword = rs.getString(3);
+                String customerDob = rs.getString(4);
+                return new Customer(customerName, customerEmail, customerPassword, customerDob);
+            }            
+        }
+        return null;
+    }
+    
+    public ArrayList<Customer> fectCustomers() throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
     
     //add customer data into database
     public void addProduct(String id, String name, String price, String desc, String quant, String type) throws SQLException {
