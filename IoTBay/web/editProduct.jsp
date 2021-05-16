@@ -7,16 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.isd.model.*"%>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <title>Edit Product</title>
     </head>
     <body>
         <h1>Edit Product</h1>
         <h1>Product</h1>
         <%Product product = (Product)session.getAttribute("product");%>
-        
+        <div class="form">
          <form action="EditProductServlet" method="get">
             <table>
                 <tr><td>Name:</td><td><input type="text"  name="name" value="<%= product.getName()%>"></td></tr>
@@ -34,5 +36,6 @@
             </table>
           
         </form>
+        </div>
     </body>
 </html>

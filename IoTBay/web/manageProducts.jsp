@@ -17,12 +17,14 @@
   session.setAttribute("products", products);
   request.setAttribute("products", products);
 %>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
+        
         <a href="main.jsp" class="button">Go to main</a>            
         <table class="tableCenter">
             <tr><th>Product Name</th> <th>Select</th></tr>
@@ -43,6 +45,7 @@
             </c:forEach>
                 
         </table>
+        <div class="form">
         <form action="ManageListServlet" method="get" >
             <table><tr>
             <td><input type="hidden" name="searchProduct"  value=""></td>
@@ -50,6 +53,8 @@
             </tr>
            </table>
         </form>
+        </div>
         <a href="createProduct.jsp" class="button">Create</a>
+        
     </body>
 </html>

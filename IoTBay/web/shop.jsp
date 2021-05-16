@@ -9,6 +9,7 @@
 <%@page import="uts.isd.model.*"%>
 <%@page import="uts.isd.model.dao.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
 <%
   ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productList");
@@ -24,7 +25,8 @@
         <title>Shop</title>
     </head>
     <body onload="startTime()">
-        <div>
+        <div class="form">
+        <a href="main.jsp" class="button">main</a>
         <h1>Search Products</h1>
         <form action="TServlet" method="get" >
             <table>

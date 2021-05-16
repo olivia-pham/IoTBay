@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,6 +14,7 @@
     </head>
     <body>
         <h1>Create Product</h1>
+        <div class="form">
         <form action="CreateProductServlet" method="post">
             <table>
                 <tr><td>ID:</td><td><input type="int"  name="id"></td></tr>
@@ -30,5 +32,6 @@
             </table>
           
         </form>
+        </div>
     </body>
 </html>
