@@ -34,7 +34,7 @@
                 <tr><td>Full Name:</td><td><input type="text" name="name" value="${customer.name}"></td></tr>
                 <tr><td>Email:</td><td><input type="email" name="email" value="${customer.email}"></td></tr>
                 <tr><td>Password:</td><td><input type="password" name="password" value="${customer.password}"></td></tr>
-                <tr><td>Date of Birth:</td><td><input type="date" name="dob" name="dob" value="${customer.dob}"></td></tr>
+                <tr><td>Phone:</td><td><input type="text" name="phone" name="phone" value="${customer.phone}"></td></tr>
                 <tr><td></td>
                     <td>
                         <input class="button" type="submit" value="Update">

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Customer;
+import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
 /**
@@ -31,9 +31,9 @@ public class EditServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         DBManager manager = (DBManager) session.getAttribute("manager");
-        Customer customer = null;
+       User customer = null;
         try {
-            customer = manager.findCustomer(email, password);
+            customer = manager.findUser(email, password);
                 if(customer!= null){   
                     session.setAttribute("customer", customer);                            
                     request.getRequestDispatcher("edit.jsp").include(request, response);

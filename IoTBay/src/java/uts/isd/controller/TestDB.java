@@ -8,7 +8,7 @@ package uts.isd.controller;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
-import uts.isd.model.Customer;
+import uts.isd.model.User;
 import uts.isd.model.dao.*;
 
 /**
@@ -64,6 +64,16 @@ public class TestDB {
             }            
         }
     }
+    
+    private void findThing() {
+        try {
+            System.out.println(db.checkProduct("1234"));
+        } catch (SQLException ex) {
+            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
     private void testAdd() {
         System.out.print("Customer name: ");
         String name = in.nextLine(); 
@@ -72,9 +82,9 @@ public class TestDB {
         System.out.print("Customer password: ");
         String password = in.nextLine();
         System.out.print("Customer date of birth: ");
-        String dob = in.nextLine();
+        String phone = in.nextLine();
         try {
-            db.addCustomer(name, email, password, dob);
+            db.addUser(name, email, password, phone,'c');
         } catch (SQLException ex) {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -86,7 +96,7 @@ public class TestDB {
         String email = in.nextLine();
         System.out.print("Customer password: ");
         String password = in.nextLine();
-        Customer customer = db.findCustomer(email, password);
+        User customer = db.findUser(email, password);
         if (customer != null) {
             System.out.println("Customer " + customer.getName() + " exists in the database.");
         } else {
@@ -99,12 +109,12 @@ public class TestDB {
         System.out.print("Customer password: ");
         String password = in.nextLine();
         try {
-            if (db.checkCustomer(email, password)) {
+            if (db.checkUser(email, password)) {
                 System.out.print("Customer name: ");
                 String name = in.nextLine();
                 System.out.print("Customer date of birth: ");
-                String dob = in.nextLine();
-                db.updateCustomer(name, email, password, dob);
+                String phone = in.nextLine();
+                db.updateUser(name, email, password, phone);
             } else {
                 System.out.println("Customer does not exist.");
             }
@@ -118,8 +128,8 @@ public class TestDB {
         System.out.print("Customer password: ");
         String password = in.nextLine();
         try {
-            if (db.checkCustomer(email, password)) {
-                db.deleteCustomer(email, email, password, email);
+            if (db.checkUser(email, password)) {
+                db.deleteUser(email, email, password, email);
             } else {
                 System.out.println("Customer does not exist.");
             }
@@ -129,18 +139,18 @@ public class TestDB {
     }
     private void showAll() {
         try {
-            ArrayList<Customer> customers = db.fectCustomers();
+            ArrayList<User> customers = db.fectUser();
             System.out.print("CUSTOMERS TABLE: ");
             customers.stream().forEach((customer)-> {
-                System.out.printf("%-20s %-30s %-40s %-10s \n",customer.getName(), customer.getEmail(), customer.getPassword(), customer.getDob());
+                System.out.printf("%-20s %-30s %-40s %-10s \n",customer.getName(), customer.getEmail(), customer.getPassword(), customer.getPhone());
             });
             System.out.println();
         } catch (SQLException ex) {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
+    
     }
-
- 
-
+    
+    
     
 }
