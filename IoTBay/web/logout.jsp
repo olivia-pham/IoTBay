@@ -12,7 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Logout Page</title>
     </head>
-    <body>
+    <body onload="endTime()">
+        <div><span class="time" id="time"></span></div>
         <h1>Logout</h1>
         
             <table>
@@ -22,4 +23,3 @@
         <% session.invalidate();%>
     </body>
 </html>
-

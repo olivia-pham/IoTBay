@@ -16,7 +16,7 @@ https://www.srcmake.com/home/bitbucket-pr
 1. Open the project on cmd line, **cd ".....\IoTBay**
 2. Make sure you're on the branch where you made changes locally/switch to the branch using git checkout
 3. **git status** to see changes made locally
-4. **git add 'file name'**, e.g. **git add README.md** to add changes to file (I would add changes to files individually instead of doing **git add .** just in case of any issues.)
+4. **git add 'file name'**, e.g. **git add README.md** to add changes to file or **git add .** to add all changes for all files
 5. **git commit -m "commit message"** to add commit message
 6. If you want to push to a new branch, **git checkout -b newbranchname**
 ..* Or just push to existing branch, e.g. **git push --set-upstream origin main**

@@ -31,7 +31,7 @@
                 <tr><td>Full Name:</td><td><input type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" name="name"></td></tr>
                 <tr><td>Email:</td><td><input type="email" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="email"></td></tr>
                 <tr><td>Password:</td><td><input type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" name="password"></td></tr>
-                <tr><td>Date of Birth:</td><td><input type="date" name="dob"></td></tr>
+                <tr><td>Phone:</td><td><input type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter Phone")%>" name="phone"></td></tr>
                 <tr><td>Agree to Terms of Service:</td><td><input type="checkbox" name="tos" required></td></tr>
                 <tr><td></td>
                     <td><a href="index.jsp" class="button">Cancel</a>
@@ -40,7 +40,7 @@
                 </tr>                
                 
             </table>
-          
+           
         </form>
         </div>
 

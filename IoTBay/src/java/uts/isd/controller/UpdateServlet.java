@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Customer;
+import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
 /**
@@ -30,13 +30,13 @@ public class UpdateServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String dob = request.getParameter("dob");
-        Customer customer = new Customer(name, email, password, dob);
+        String phone = request.getParameter("phone");
+        User customer = new User(name, email, password, phone,'c');
         DBManager manager = (DBManager) session.getAttribute("manager");
         try {
                 if(customer!= null){   
                     session.setAttribute("customer", customer);    
-                    manager.updateCustomer(name, email, password, dob);
+                    manager.updateUser(name, email, password, phone);
                     session.setAttribute("updated", "Update was successful"); 
                     request.getRequestDispatcher("edit.jsp").include(request, response);
                 } else {
