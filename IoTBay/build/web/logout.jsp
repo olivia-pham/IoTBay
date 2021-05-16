@@ -23,3 +23,4 @@
         <% session.invalidate();%>
     </body>
 </html>
+

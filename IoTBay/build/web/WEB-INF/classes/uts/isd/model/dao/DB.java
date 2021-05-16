@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package uts.isd.model.dao;
-import java.sql.Connection;
+import java.sql.*;
 
 /**
  *
@@ -19,3 +19,7 @@ public abstract class DB {
     protected Connection conn;
     
 }
+
+
+
+

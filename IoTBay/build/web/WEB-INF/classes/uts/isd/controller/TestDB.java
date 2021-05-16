@@ -64,6 +64,16 @@ public class TestDB {
             }            
         }
     }
+    
+    private void findThing() {
+        try {
+            System.out.println(db.checkProduct("1234"));
+        } catch (SQLException ex) {
+            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
     private void testAdd() {
         System.out.print("Customer name: ");
         String name = in.nextLine(); 
@@ -138,9 +148,9 @@ public class TestDB {
         } catch (SQLException ex) {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
+    
     }
-
- 
-
+    
+    
     
 }
