@@ -6,6 +6,7 @@
 package uts.isd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -22,27 +23,25 @@ import uts.isd.model.dao.*;
  *
  * @author olivi
  */
-public class addToCartServlet extends HttpServlet  {
+public class addOrderServlet extends HttpServlet {
      @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String id = request.getParameter("id");
-        String orderId = request.getParameter("orderId");
-        String productId = request.getParameter("productId");
-        String totalPrice = request.getParameter("totalPrice");
-        String quantity = request.getParameter("quantity");
+        String userEmail = request.getParameter("userEmail");
+        String total = request.getParameter("total");
+        String status = request.getParameter("status");
         DBManager manager = (DBManager) session.getAttribute("manager");
  
         try {
-            manager.addOrderLine(id, orderId, quantity, productId, totalPrice);
-            ArrayList<OrderLine> orderLines = manager.fetchOrders();
-            session.setAttribute("orderLines", orderLines);
+            manager.addOrder(id, userEmail, total, status);
+            ArrayList<Order> orders = manager.fetchOrder();
+            session.setAttribute("orders", orders);
         } catch (SQLException ex) {
             Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-            request.getRequestDispatcher("cart.jsp").include(request, response);
-
-        
+            request.getRequestDispatcher("payment.jsp").include(request, response);
     }
+
 }

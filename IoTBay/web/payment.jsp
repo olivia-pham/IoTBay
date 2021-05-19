@@ -3,11 +3,13 @@
     Created on : 16/05/2021, 5:40:30 PM
     Author     : JH
 --%>
-<%@page import="uts.isd.model.Customer"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>Payment</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,9 +90,33 @@
     </div>
     <div class="col-25">
         <div class="container">
+            <% 
+                ArrayList<OrderLine> orderLines = (ArrayList<OrderLine>) session.getAttribute("orderLines");
+                session.setAttribute("orderLines", orderLines);
+                request.setAttribute("orderLines", orderLines);
+            %>
             <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>2</b></span></h4>
-            <p><a href="#">Product B</a>&nbsp;&nbsp;<a class="quantity">Qty: 2&nbsp;</a> <span class="price">$20</span></p>
-            <p><a href="#">Product C</a>&nbsp;&nbsp;<a class="quantity">Qty: 1&nbsp;</a> <span class="price">$10</span></p>
+            <table class="tableCenter">
+            <tr><th>Product Name</th><th>Quantity</th><th>Price</th></tr>
+            
+            <c:forEach items="${orderLines}" var="orderLine">
+            
+            <tr>
+                <td>${orderLine.orderLineId}</td> 
+                <td>${orderLine.quantity}</td>
+                <td>${orderLine.price}</td>
+                <td><form method="post" action="addToCartServlet">
+                    <input type="submit" value="+">
+                </form></td>
+                <td><form method="post" action="removeFromCartServlet">
+                    <input type="submit" value="-">
+                </form></td>
+            </tr>
+            <tr></tr>
+
+            </c:forEach>
+                
+        </table>
 <!--            <p><a href="#">StuffC</a> <span class="price">$1400</span></p>
             <p><a href="#">StuffD</a> <span class="price">$1200</span></p>-->
             <hr>

@@ -27,12 +27,11 @@
         <tr><td>${user.name}</td><td>${user.email}</td><td>${user.password}</td><td>${user.phone}</td> <td>${user.accountType}</td></tr>               
         <div class="buttonDiv1">
             <a href="shop.jsp" class="button">Shop</a>
-            <a href="cart.jsp" class="button">My Cart</a>
             <%if (user.getAccountType() == 's') {%>
                 <a href="manageProducts.jsp" class="button">ManageProducts</a>
             <%} %>
             <a href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'" class="button">Account</a>
-            <a href="CartServlet" class="button">My Cart</a>
+            <a href="cart.jsp" class="button">My Cart</a>
             <a href="OrderHistoryServlet" class="button">My Order History</a>
             <a href="LogoutController" class="button">Logout</a>
         </div>

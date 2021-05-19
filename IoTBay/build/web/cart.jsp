@@ -30,15 +30,19 @@
             <c:forEach items="${orderLines}" var="orderLine">
             
             <tr>
-                <td>${orderLine.productName}</td> 
+                <td>${orderLine.orderLineId}</td> 
                 <td>${orderLine.quantity}</td>
                 <td>${orderLine.price}</td>
-                <td><form method="post" action="addToCartServlet">
-                    <input type="submit" value="+">
-                </form></td>
-                <td><form method="post" action="removeFromCartServlet">
-                    <input type="submit" value="-">
-                </form></td>
+                <td>
+                        <form action ="removeFromCartServlet" method="get"> 
+                            <input type="hidden" name = "orderLineSelect" value="${orderLine.getOrderLineId()}"> 
+                            <input class="button" type="submit" value="delete">
+                        </form>
+                        <form action ="orderForm.jsp" method="get"> 
+                            <input type="hidden" name = "productSelect" value="${product.getId()}"> 
+                            <input class="button" type="submit" value="edit">
+                        </form>
+                </td>
             </tr>
             <tr></tr>
 
@@ -46,7 +50,7 @@
                 
         </table>
 
-        <form action="payment.jsp" method="post">
+        <form action="confirmOrder.jsp" method="post">
             <input type="submit" value="Submit Order">
         </form>
         <div class="buttonDiv1">

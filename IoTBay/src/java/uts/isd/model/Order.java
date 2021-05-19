@@ -5,43 +5,31 @@
  */
 package uts.isd.model;
 import java.io.Serializable;
-import java.util.LinkedList;
 
 /**
  *
  * @author olivi
  */
 public class Order implements Serializable{
-    private String orderID;
+    private String orderId;
     private String userEmail;
-    private String orderDate;
     private String totalPrice;
-    private String shippingAddress;
-    
-    
-    public Order() {
-    
-    }
+    private String status;
 
-    public Order(String orderID, String userEmail, String orderDate, String totalPrice, String shippingAddress) {
-        this.orderID = orderID;
+    public Order(String orderId, String userEmail, String totalPrice, String status) {
+        this.orderId = orderId;
         this.userEmail = userEmail;
-        this.orderDate = orderDate;
         this.totalPrice = totalPrice;
-        this.shippingAddress = shippingAddress;  
-    }
-    
-    
-    
-    
-    public String getOrderID() {
-        return orderID;
-    }
-    
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+        this.status = status;
     }
 
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
 
     public String getUserEmail() {
         return userEmail;
@@ -49,14 +37,6 @@ public class Order implements Serializable{
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-    }
-
-    public String getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
     }
 
     public String getTotalPrice() {
@@ -67,14 +47,15 @@ public class Order implements Serializable{
         this.totalPrice = totalPrice;
     }
 
-    public String getShippingAddress() {
-        return shippingAddress;
+    public String getStatus() {
+        return status;
     }
 
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
+    public void setStatus(String status) {
+        this.status = status;
     }
-    
+
+
 
     
 }

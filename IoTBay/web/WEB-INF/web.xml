@@ -65,8 +65,6 @@
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>uts.isd.controller.CartServlet</servlet-class>
     </servlet>
-    
-    
     <servlet>
         <servlet-name>addToCartServlet</servlet-name>
         <servlet-class>uts.isd.controller.addToCartServlet</servlet-class>
@@ -102,6 +100,10 @@
     <servlet>
         <servlet-name>removeFromCartServlet</servlet-name>
         <servlet-class>uts.isd.controller.removeFromCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.addOrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -139,36 +141,30 @@
         <servlet-name>EditProductServlet</servlet-name>
         <url-pattern>/EditProductServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>CreateProductServlet</servlet-name>
         <url-pattern>/CreateProductServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>DeleteProductServlet</servlet-name>
         <url-pattern>/DeleteProductServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ManageListServlet</servlet-name>
         <url-pattern>/ManageListServlet</url-pattern>
     </servlet-mapping>
-    
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>GetProductForEditServlet</servlet-name>
         <url-pattern>/GetProductForEditServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>CancelServlet</servlet-name>
         <url-pattern>/CancelServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>StaffRegistrationServlet</servlet-name>
         <url-pattern>/StaffRegistrationServlet</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
@@ -209,7 +205,10 @@
         <servlet-name>removeFromCartServlet</servlet-name>
         <url-pattern>/removeFromCartServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>addOrderServlet</servlet-name>
+        <url-pattern>/addOrderServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

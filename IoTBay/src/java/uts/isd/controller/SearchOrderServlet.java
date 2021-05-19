@@ -34,14 +34,7 @@ public class SearchOrderServlet extends HttpServlet {
                 ArrayList<Order> orders = manager.searchOrders(ID);
                 session.setAttribute("orders", orders);
             }
-            else if (ID.isEmpty() && !date.isEmpty()) {
-                ArrayList<Order> orders = manager.searchDOrders(date);
-                session.setAttribute("orders", orders);
-            }
-            else if (!ID.isEmpty() && !date.isEmpty()) {
-                ArrayList<Order> orders = manager.searchBothOrders(ID, date);
-                session.setAttribute("orders", orders);
-            }
+
             else {
                 ArrayList<Order> orders = manager.fetchOrder();
                 session.setAttribute("orders", orders);

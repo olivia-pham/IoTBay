@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.OrderLine;
+import uts.isd.model.*;
 import uts.isd.model.dao.DBManager;
 
 /**
@@ -25,31 +25,33 @@ import uts.isd.model.dao.DBManager;
  */
 public class removeFromCartServlet extends HttpServlet {
 
-    @Override   
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String orderLineID = request.getParameter("orderLineID");
-        String orderID = request.getParameter("orderID");
-        String userID = request.getParameter("userID");
-        String productID = request.getParameter("productID");
-        String productName = request.getParameter("productName");
-        String price = request.getParameter("price");
         DBManager manager = (DBManager) session.getAttribute("manager");
-        
+        //String id = request.getParameter("orderLineSelect");
+        //OrderLine orderLine = null;
+        String id = request.getParameter("orderLineSelect");
+        OrderLine orderLine = null;
         
         try {
-                if (manager.findOrderLine(orderLineID) != null){
-                    manager.deleteOrderLine(orderLineID);
-                    ArrayList<OrderLine> orderLines = manager.fetchOrders();
-                    session.setAttribute("orderList", orderLines);
-                } else {
-                }
+            orderLine = manager.findOrderLine(id);
+            if (orderLine != null) {
+              
+                manager.deleteOrderLine(orderLine.getOrderLineId());
+                ArrayList<OrderLine> orderLines = manager.fetchOrders();
+                session.setAttribute("orderLines", orderLines);
+                //request.getRequestDispatcher("manageOrderLines.jsp").forward(request, response);
+                response.sendRedirect("cart.jsp"); 
+                
+                
+            }
             } catch (SQLException ex) {
-                Logger.getLogger(addToCartServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(removeFromCartServlet.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
             }
-            request.getRequestDispatcher("cart.jsp").include(request, response);
-        } 
+    }
 }
 
 
