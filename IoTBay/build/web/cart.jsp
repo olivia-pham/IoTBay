@@ -38,8 +38,8 @@
                             <input type="hidden" name = "orderLineSelect" value="${orderLine.getOrderLineId()}"> 
                             <input class="button" type="submit" value="delete">
                         </form>
-                        <form action ="orderForm.jsp" method="get"> 
-                            <input type="hidden" name = "productSelect" value="${product.getId()}"> 
+                        <form action ="EditCartServlet" method="get"> 
+                            <input type="hidden" name = "orderLineSelect" value="${orderLine.getOrderLineId()}"> 
                             <input class="button" type="submit" value="edit">
                         </form>
                 </td>
@@ -54,7 +54,7 @@
             <input type="submit" value="Submit Order">
         </form>
         <div class="buttonDiv1">
-            <a href="shop.jsp" class="button">Back</a>
+            <a href="shop.jsp" class="button">Back to Shop</a>
         </div>
         
     </body>

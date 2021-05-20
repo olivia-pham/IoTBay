@@ -220,7 +220,7 @@ public class DBManager {
     }
     
     public void addOrder(String orderID, String userEmail, String status) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERS " + "VALUES (" +orderID+", " +userEmail+", "+status+")");
+        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERS " + "VALUES (" +orderID+", "+userEmail+", "+status+")");
         
               
         

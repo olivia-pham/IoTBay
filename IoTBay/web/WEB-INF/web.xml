@@ -105,6 +105,14 @@
         <servlet-name>addOrderServlet</servlet-name>
         <servlet-class>uts.isd.controller.addOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditCartServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UpdateCartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -208,6 +216,14 @@
     <servlet-mapping>
         <servlet-name>addOrderServlet</servlet-name>
         <url-pattern>/addOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCartServlet</servlet-name>
+        <url-pattern>/EditCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <url-pattern>/UpdateCartServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

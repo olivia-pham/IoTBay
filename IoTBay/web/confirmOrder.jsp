@@ -3,20 +3,21 @@
     Created on : 19/05/2021, 4:02:39 PM
     Author     : olivi
 --%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="uts.isd.model.*"%>
+<%@page import="uts.isd.model.dao.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Confirm Order</title>
     </head>
     <body>
         <h1>Confirm Order</h1>
         <div class="form">
         <form action="addOrderServlet" method="post">
-            <table>
-                             
+            <table>       
                 <tr><td>Order ID:</td><td><input type="number" name="id" required></td></tr>
                 <tr><td>Account ID:</td><td><input value="${user.email}" name="userEmail" required></td></tr>
                 <tr><td>Status:</td><td><input value="Pending" name="status" required></td></tr>

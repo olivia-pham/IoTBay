@@ -97,7 +97,7 @@
             %>
             <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>2</b></span></h4>
             <table class="tableCenter">
-            <tr><th>Product Name</th><th>Quantity</th><th>Price</th></tr>
+            <tr><th>OrderLine ID</th><th>Quantity</th><th>Price</th></tr>
             
             <c:forEach items="${orderLines}" var="orderLine">
             
@@ -105,12 +105,7 @@
                 <td>${orderLine.orderLineId}</td> 
                 <td>${orderLine.quantity}</td>
                 <td>${orderLine.price}</td>
-                <td><form method="post" action="addToCartServlet">
-                    <input type="submit" value="+">
-                </form></td>
-                <td><form method="post" action="removeFromCartServlet">
-                    <input type="submit" value="-">
-                </form></td>
+                
             </tr>
             <tr></tr>
 

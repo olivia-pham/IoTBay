@@ -38,7 +38,7 @@ public class addOrderServlet extends HttpServlet {
             ArrayList<Order> orders = manager.fetchOrder();
             session.setAttribute("orders", orders);
         } catch (SQLException ex) {
-            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
             request.getRequestDispatcher("payment.jsp").include(request, response);
     }
