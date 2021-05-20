@@ -19,7 +19,6 @@
                              
                 <tr><td>Order ID:</td><td><input type="number" name="id" required></td></tr>
                 <tr><td>Account ID:</td><td><input value="${user.email}" name="userEmail" required></td></tr>
-                <tr><td>Total:</td><td><input type="number" name="totalPrice" required></td></tr>
                 <tr><td>Status:</td><td><input value="Pending" name="status" required></td></tr>
                 <tr><td></td>
                     <td><a href="cart.jsp" class="button">Cancel</a>

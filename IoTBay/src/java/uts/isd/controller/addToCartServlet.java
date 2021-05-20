@@ -28,14 +28,13 @@ public class addToCartServlet extends HttpServlet  {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String id = request.getParameter("id");
-        String orderId = request.getParameter("orderId");
         String productId = request.getParameter("productId");
         String price = request.getParameter("price");
         String quantity = request.getParameter("quantity");
         DBManager manager = (DBManager) session.getAttribute("manager");
  
         try {
-            manager.addOrderLine(id, orderId, quantity, productId, price);
+            manager.addOrderLine(id, quantity, productId, price);
             ArrayList<OrderLine> orderLines = manager.fetchOrders();
             session.setAttribute("orderLines", orderLines);
         } catch (SQLException ex) {

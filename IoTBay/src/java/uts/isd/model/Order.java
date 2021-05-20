@@ -13,13 +13,11 @@ import java.io.Serializable;
 public class Order implements Serializable{
     private String orderId;
     private String userEmail;
-    private String totalPrice;
     private String status;
 
-    public Order(String orderId, String userEmail, String totalPrice, String status) {
+    public Order(String orderId, String userEmail, String status) {
         this.orderId = orderId;
         this.userEmail = userEmail;
-        this.totalPrice = totalPrice;
         this.status = status;
     }
 
@@ -37,14 +35,6 @@ public class Order implements Serializable{
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-    }
-
-    public String getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(String totalPrice) {
-        this.totalPrice = totalPrice;
     }
 
     public String getStatus() {

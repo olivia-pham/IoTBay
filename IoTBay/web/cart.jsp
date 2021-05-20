@@ -25,7 +25,7 @@
         <h1>My Cart</h1>
         
         <table class="tableCenter">
-            <tr><th>Product Name</th><th>Quantity</th><th>Price</th></tr>
+            <tr><th>OrderLine ID</th><th>Quantity</th><th>Price</th></tr>
             
             <c:forEach items="${orderLines}" var="orderLine">
             

@@ -30,12 +30,11 @@ public class addOrderServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String id = request.getParameter("id");
         String userEmail = request.getParameter("userEmail");
-        String total = request.getParameter("total");
         String status = request.getParameter("status");
         DBManager manager = (DBManager) session.getAttribute("manager");
  
         try {
-            manager.addOrder(id, userEmail, total, status);
+            manager.addOrder(id, userEmail, status);
             ArrayList<Order> orders = manager.fetchOrder();
             session.setAttribute("orders", orders);
         } catch (SQLException ex) {

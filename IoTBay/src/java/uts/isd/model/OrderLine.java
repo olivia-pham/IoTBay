@@ -12,7 +12,6 @@ import java.io.Serializable;
  */
 public class OrderLine implements Serializable{
     private String orderLineId;
-    private String orderId;
     private String quantity;
     private String productId;
     private String price;
@@ -21,9 +20,8 @@ public class OrderLine implements Serializable{
     public OrderLine() {
     }
 
-    public OrderLine(String orderLineId, String orderId, String quantity, String productId, String price) {
+    public OrderLine(String orderLineId, String quantity, String productId, String price) {
         this.orderLineId = orderLineId;
-        this.orderId = orderId;
         this.quantity = quantity;
         this.productId = productId;
         this.price = price;
@@ -35,14 +33,6 @@ public class OrderLine implements Serializable{
 
     public void setOrderLineId(String orderLineId) {
         this.orderLineId = orderLineId;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
     }
 
     public String getQuantity() {

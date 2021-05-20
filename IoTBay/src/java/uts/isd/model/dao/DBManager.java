@@ -211,24 +211,23 @@ public class DBManager {
             
             if (orderID.equals(oID)) {
                 String userEmail = rs.getString(2);
-                String totalPrice = rs.getString(3);
-                String status = rs.getString(4);
-                return new Order(orderID, userEmail, totalPrice, status);
+                String status = rs.getString(3);
+                return new Order(orderID, userEmail, status);
             }
             
         }
         return null;
     }
     
-    public void addOrder(String orderID, String userEmail, String totalPrice, String status) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERS " + "VALUES (" +orderID+", " +userEmail+", "+totalPrice+", "+status+")");
+    public void addOrder(String orderID, String userEmail, String status) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDERS " + "VALUES (" +orderID+", " +userEmail+", "+status+")");
         
               
         
     }
     
-    public void updateOrder(String orderID, String userEmail, String totalPrice, String status) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.ORDERS SET TOTAL="+totalPrice+",STATUS='"+
+    public void updateOrder(String orderID, String userEmail, String status) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.ORDERS SET STATUS='"+
                 status+"' WHERE ID="+orderID + " AND USER_EMAIL='"+userEmail+"'");
     }
     
@@ -244,10 +243,9 @@ public class DBManager {
         while (rs.next()) {
             String orderID = rs.getString(1);
             String userEmail = rs.getString(2);
-            String totalPrice = rs.getString(3);
-            String status = rs.getString(4);
+            String status = rs.getString(3);
             
-            temp.add(new Order(orderID, userEmail, totalPrice, status));
+            temp.add(new Order(orderID, userEmail, status));
         }
         return temp;
     }
@@ -260,9 +258,8 @@ public class DBManager {
         while (rs.next()) {
             String orderID = rs.getString(1);
             String userEmail = rs.getString(2);
-            String totalPrice = rs.getString(3);
-            String status = rs.getString(4);
-            temp.add(new Order(orderID, userEmail, totalPrice, status));
+            String status = rs.getString(3);
+            temp.add(new Order(orderID, userEmail, status));
         }
         return temp;        
     }
@@ -274,12 +271,11 @@ public class DBManager {
         
         while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them Stringo Strings
             String orderLineID = rs.getString(1);
-            if (orderLineID.equals(olID)) {                
-                String orderID = rs.getString(2);
-                String productID = rs.getString(3);
-                String quantity = rs.getString(4);
-                String price = rs.getString(5);
-                return new OrderLine(orderLineID, orderID, quantity, productID, price);
+            if (orderLineID.equals(olID)) { 
+                String productID = rs.getString(2);
+                String quantity = rs.getString(3);
+                String price = rs.getString(4);
+                return new OrderLine(orderLineID, quantity, productID, price);
                 
             }
             
@@ -287,12 +283,12 @@ public class DBManager {
         return null;
     }
     
-    public void addOrderLine(String orderLineID, String orderID, String quantity, String productID, String price) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDER_LINE " + "VALUES (" +orderLineID+", " +orderID+", "+quantity+", "+productID+", "+ price+")");
+    public void addOrderLine(String orderLineID, String quantity, String productID, String price) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.ORDER_LINE " + "VALUES (" +orderLineID+", "+quantity+", "+productID+", "+ price+")");
     }
     
-    public void updateOrderLine(String orderLineID, String orderID, String quantity, String productID, String price) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.ORDER_LINE SET ORDER_ID="+orderID+",QUANTITY="+quantity+",PRODUCT_ID="+productID+",PRICE="+price+" WHERE ID="+orderLineID+"");
+    public void updateOrderLine(String orderLineID, String quantity, String productID, String price) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.ORDER_LINE SET QUANTITY="+quantity+",PRODUCT_ID="+productID+",PRICE="+price+" WHERE ID="+orderLineID+"");
     }
     
     public void deleteOrderLine(String orderLineID) throws SQLException {
@@ -306,11 +302,10 @@ public class DBManager {
         
         while (rs.next()) {
             String orderLineID = rs.getString(1);
-            String orderID = rs.getString(2);
-            String quantity = rs.getString(3);                
-            String productID = rs.getString(4);
-            String price = rs.getString(5);
-            temp.add(new OrderLine(orderLineID, orderID, quantity, productID, price));
+            String quantity = rs.getString(2);                
+            String productID = rs.getString(3);
+            String price = rs.getString(4);
+            temp.add(new OrderLine(orderLineID, quantity, productID, price));
         }
         return temp;
     }
