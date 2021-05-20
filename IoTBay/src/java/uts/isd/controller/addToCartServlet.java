@@ -30,12 +30,12 @@ public class addToCartServlet extends HttpServlet  {
         String id = request.getParameter("id");
         String orderId = request.getParameter("orderId");
         String productId = request.getParameter("productId");
-        String totalPrice = request.getParameter("totalPrice");
+        String price = request.getParameter("price");
         String quantity = request.getParameter("quantity");
         DBManager manager = (DBManager) session.getAttribute("manager");
  
         try {
-            manager.addOrderLine(id, orderId, quantity, productId, totalPrice);
+            manager.addOrderLine(id, orderId, quantity, productId, price);
             ArrayList<OrderLine> orderLines = manager.fetchOrders();
             session.setAttribute("orderLines", orderLines);
         } catch (SQLException ex) {

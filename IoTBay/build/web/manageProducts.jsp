@@ -33,7 +33,7 @@
                 <tr><td>${product.getName()}</td>
                     <td>
                         <form action ="DeleteProductServlet" method="get"> 
-                            <input type="hidden" name = "orderLineSelect" value="${product.getId()}"> 
+                            <input type="hidden" name = "productSelect" value="${product.getId()}"> 
                             <input class="button" type="submit" value="delete">
                         </form>
                         <form action ="GetProductForEditServlet" method="get"> 
