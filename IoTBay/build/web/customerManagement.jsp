@@ -26,7 +26,7 @@
         <div class="form">
         <a href="main.jsp" class="button">main</a>
         <h1>Search Customers</h1>
-        <form action="TServlet" method="get" >
+        <form action="CustomerManagementServelet" method="get" >
             <table>
                 <tr><th>Email</th> <th>Password</th></tr>
             <tr>
