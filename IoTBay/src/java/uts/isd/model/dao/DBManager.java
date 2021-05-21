@@ -309,6 +309,123 @@ public class DBManager {
         }
         return temp;
     }
+   public ArrayList<Customer> searchCustomers(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Name LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> searchTCustomers(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Type LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> searchBothCustomers(String input, String input2) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Name LIKE '%" + input + "%' AND Email LIKE '%" + input2 + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> fectCustomers() throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    } public ArrayList<Customer> searchCustomers(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Name LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> searchTCustomers(String input) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Type LIKE '%" + input + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> searchBothCustomers(String input, String input2) throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS WHERE Name LIKE '%" + input + "%' AND Email LIKE '%" + input2 + "%'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
+    
+    public ArrayList<Customer> fectCustomers() throws SQLException {
+        String fetch = "select * from ADMIN1.CUSTOMERS";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Customer> temp = new ArrayList();
+        
+        while (rs.next()) {
+            String name = rs.getString(1);
+            String email = rs.getString(2);
+            String password = rs.getString(3);
+            String dob = rs.getString(4);
+            temp.add(new Customer(name, email, password, dob));
+        }
+        return temp;        
+    }
 
 
 
