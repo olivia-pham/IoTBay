@@ -33,6 +33,7 @@
             <a href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'" class="button">Account</a>
             <a href="cart.jsp" class="button">My Cart</a>
             <a href="OrderHistoryServlet" class="button">My Order History</a>
+            <a href="myPaymentdetail.jsp" class="button">My payment detail</a>
             <a href="LogoutController" class="button">Logout</a>
         </div>
     </body>
