@@ -24,7 +24,7 @@ import uts.isd.model.dao.DBManager;
  */
 public class UpdateServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String name = request.getParameter("name");
@@ -38,7 +38,7 @@ public class UpdateServlet extends HttpServlet {
                     session.setAttribute("customer", customer);    
                     manager.updateUser(name, email, password, phone);
                     session.setAttribute("updated", "Update was successful"); 
-                    request.getRequestDispatcher("edit.jsp").include(request, response);
+                    request.getRequestDispatcher("main.jsp").include(request, response);
                 } else {
                     session.setAttribute("updated", "Update was not successful");
                     request.getRequestDispatcher("edit.jsp").include(request, response);
@@ -46,7 +46,7 @@ public class UpdateServlet extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("edit.jsp");
+            //response.sendRedirect("edit.jsp");
         }    
 
 }
