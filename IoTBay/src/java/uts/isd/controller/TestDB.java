@@ -129,7 +129,7 @@ public class TestDB {
         String password = in.nextLine();
         try {
             if (db.checkUser(email, password)) {
-                db.deleteUser(email, email, password, email);
+                db.deleteUser(email);
             } else {
                 System.out.println("Customer does not exist.");
             }
