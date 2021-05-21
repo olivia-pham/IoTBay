@@ -8,7 +8,6 @@ package uts.isd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,40 +15,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Customer;
-import uts.isd.model.Product;
+import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
 /**
  *
- * @author User
+ * @author jkmod
  */
-public class DeleteCustomerServlet extends HttpServlet {
+public class DeleteCustomerServlet extends HttpServlet{
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
         DBManager manager = (DBManager) session.getAttribute("manager");
-        String name = request.getParameter("customerSelect");
-        Customer customer = null;
+        User user = null;
         
-        try {
-            customer = manager.findCustomer(name);
-            if (customer != null) {
-              
-                manager.deleteCustomer(customer.getName(), customer.getEmail(), customer.getPassword(), customer.getDob());
-                ArrayList<Customer> customers = manager.fectCustomers();
-                session.setAttribute("customerList", customer);
-                //request.getRequestDispatcher("manageProducts.jsp").forward(request, response);
-                response.sendRedirect("customerManagement.jsp"); 
-                
-                
+         try {
+             user = manager.findUser(email, password);
+            if (email != null && password != null) {
+                session.setAttribute("user", user);
+                manager.deleteUser(email);
+                request.getRequestDispatcher("logout.jsp").include(request, response);
             }
-            } catch (SQLException ex) {
-                Logger.getLogger(GetCustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
+
+            else {
+                session.setAttribute("existErr", "Error: Customer does not exist in database");
+                request.getRequestDispatcher("edit.jsp").include(request, response);
             }
+            request.getRequestDispatcher("logout.jsp").include(request, response);
+            response.sendRedirect("logout.jsp"); 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
-    
 }
