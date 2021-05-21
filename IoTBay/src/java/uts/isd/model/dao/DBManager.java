@@ -51,7 +51,7 @@ public class DBManager {
     }
     
     //delete customer from database
-    public void deleteUser(String name, String email, String password, String phone) throws SQLException {
+    public void deleteUser(String email) throws SQLException {
         st.executeUpdate("DELETE FROM IOTBAYUSER.users WHERE EMAIL='" + email + "'");
     }
     
