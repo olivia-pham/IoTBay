@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package uts.isd.controller;
 
 import java.io.IOException;
@@ -18,34 +19,33 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
-/**
- *
- * @author olivi
- */
 public class EditServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         DBManager manager = (DBManager) session.getAttribute("manager");
-       User customer = null;
-        try {
-            customer = manager.findUser(email, password);
-                if(customer!= null){   
-                    session.setAttribute("user", customer);                            
-                    request.getRequestDispatcher("edit.jsp").include(request, response);
-                } else {
-                    session.setAttribute("existErr", "Error: Customer does not exist in database");
-                    request.getRequestDispatcher("edit.jsp").include(request, response);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
+        User user = null;
+        
+         try {
+             user = manager.findUser(email, password);
+            if (email != null && password != null) {
+                session.setAttribute("user", user);
+                request.getRequestDispatcher("edit.jsp").include(request, response);
+            }
+
+            else {
+                session.setAttribute("existErr", "Error: Customer does not exist in database");
+                request.getRequestDispatcher("main.jsp").include(request, response);
             }
             request.getRequestDispatcher("edit.jsp").include(request, response);
-        }     
-
+            response.sendRedirect("edit.jsp"); 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 }
