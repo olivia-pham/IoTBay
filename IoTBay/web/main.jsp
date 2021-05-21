@@ -29,6 +29,7 @@
             <a href="shop.jsp" class="button">Shop</a>
             <%if (user.getAccountType() == 's') {%>
                 <a href="manageProducts.jsp" class="button">ManageProducts</a>
+                <a href="customerManagemenr.jsp" class="button">Customer Management</a>
             <%} %>
             <a href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'" class="button">Account</a>
             <a href="cart.jsp" class="button">My Cart</a>
