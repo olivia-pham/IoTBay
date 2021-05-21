@@ -22,8 +22,8 @@
         <form action="UpdateCartServlet" method="get">
             <table>
                 <tr><td>OrderLine ID:</td><td><input value="<%= orderLine.getOrderLineId()%>" name="id" required></td></tr>
-                <tr><td>Quantity:</td><td><input value="<%= orderLine.getQuantity()%>" name="quantity" required></td></tr>
-                <tr><td>ProductID:</td><td><input value="<%= orderLine.getProductId()%>" name="productId" required></td></tr> 
+                <tr><td>Quantity:</td><td><input value="<%= orderLine.getProductId()%>" name="quantity" required></td></tr>
+                <tr><td>ProductID:</td><td><input value="<%= orderLine.getQuantity()%>" name="productId" required></td></tr> 
                 <tr><td>Product:</td><td>${product.name}</td></tr> 
                 <tr><td>Price/Unit:</td><td><input value="<%= orderLine.getPrice()%>" name="price" required></td></tr>
                 <tr><td></td>

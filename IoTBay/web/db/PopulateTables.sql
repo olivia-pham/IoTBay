@@ -77,6 +77,3 @@ INSERT INTO PRODUCTS (ID, "NAME", PRICE, DESCRIPTION, QUANTITY, "TYPE")
 	 (33133213, 'Gaming phone', 4343, 'SHOT', 4, 'Phone'),
 	 (42333424, 'Mouse', 4243, 'sdfsfsfs', 3, 'Stuff'),
 	 (42343323, 'Keyboard', 12, 'dsdgsg', 4, 'Stuff');
-
-
-

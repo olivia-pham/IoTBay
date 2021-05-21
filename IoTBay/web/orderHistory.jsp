@@ -4,19 +4,24 @@
     Author     : olivi
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.*"%>
 <%@page import="uts.isd.model.dao.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% 
-    ArrayList<Order> orders = (ArrayList<Order>)session.getAttribute("orders");
-    session.setAttribute("orders", orders);
-    request.setAttribute("orders", orders);
-%>
-<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Orders</title>
+    </head>
+    <% 
+        ArrayList<Order> orders = (ArrayList<Order>)session.getAttribute("orders");
+        session.setAttribute("orders", orders);
+        request.setAttribute("orders", orders);
+    %>
+    <body>
         <h1>My Orders</h1>
         
         <table class="tableCenter">

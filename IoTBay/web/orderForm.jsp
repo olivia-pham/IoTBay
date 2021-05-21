@@ -22,7 +22,7 @@
             <table>
                 <tr><td>OrderLine ID:</td><td><input type="number" name="id" required></td></tr>
                 <tr><td>Quantity:</td><td><input type="number" name="quantity" required></td></tr>
-                <tr><td>ProductID:</td><td><input value="${product.id}" name="productId" required></td></tr> 
+                <tr><td>Product ID:</td><td><input value="${product.id}" name="productId" required></td></tr> 
                 <tr><td>Product:</td><td>${product.name}</td></tr> 
                 <tr><td>Price/Unit:</td><td><input value="${product.price}" name="price" required></td></tr>
                 <tr><td></td>
