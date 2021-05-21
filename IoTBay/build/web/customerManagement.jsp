@@ -75,6 +75,7 @@
         </table>                
         <a href="deleteCustomer.jsp" class="button">Delete a Customer</a>
         <a href="edit.jsp" class="button">Edit a Customer</a>
+        <a href="register.jsp" class="button">Add a Customer</a>
         
         </div>
     </body>
